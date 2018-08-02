@@ -13,11 +13,11 @@
 		05873A74208BBD510029BED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05873A73208BBD510029BED6 /* Assets.xcassets */; };
 		05873A77208BBD510029BED6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05873A75208BBD510029BED6 /* LaunchScreen.storyboard */; };
 		05873A84208CF35F0029BED6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05873A83208CF35F0029BED6 /* Constants.swift */; };
-		0688F7565E2BBCFBB36C3174 /* Pods_FreestarBannerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B2E035CB24297B8196742C /* Pods_FreestarBannerApp.framework */; };
+		94236B11ED8F8BDFC1AEB5CE /* Pods_FreestarInterstitialApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E5090B85BD75DDF7858FC9 /* Pods_FreestarInterstitialApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05873A69208BBD4F0029BED6 /* FreestarBannerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreestarBannerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05873A69208BBD4F0029BED6 /* FreestarInterstitialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreestarInterstitialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05873A6C208BBD4F0029BED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05873A6E208BBD4F0029BED6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		05873A71208BBD4F0029BED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -25,9 +25,9 @@
 		05873A76208BBD510029BED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05873A78208BBD510029BED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05873A83208CF35F0029BED6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		94FE0E118008FFC90AC55262 /* Pods-FreestarBannerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreestarBannerApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp.release.xcconfig"; sourceTree = "<group>"; };
-		C1A1C23707B08225C89093CD /* Pods-FreestarBannerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreestarBannerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp.debug.xcconfig"; sourceTree = "<group>"; };
-		D1B2E035CB24297B8196742C /* Pods_FreestarBannerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreestarBannerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E5090B85BD75DDF7858FC9 /* Pods_FreestarInterstitialApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreestarInterstitialApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD266B37014437ED147F56FE /* Pods-FreestarInterstitialApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreestarInterstitialApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FreestarInterstitialApp/Pods-FreestarInterstitialApp.release.xcconfig"; sourceTree = "<group>"; };
+		F1E7B10DA10F57644CC5FEA1 /* Pods-FreestarInterstitialApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreestarInterstitialApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FreestarInterstitialApp/Pods-FreestarInterstitialApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0688F7565E2BBCFBB36C3174 /* Pods_FreestarBannerApp.framework in Frameworks */,
+				94236B11ED8F8BDFC1AEB5CE /* Pods_FreestarInterstitialApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,22 +45,22 @@
 		05873A60208BBD4F0029BED6 = {
 			isa = PBXGroup;
 			children = (
-				05873A6B208BBD4F0029BED6 /* FreestarBannerApp */,
+				05873A6B208BBD4F0029BED6 /* FreestarInterstitialApp */,
 				05873A6A208BBD4F0029BED6 /* Products */,
-				A35FBF6027B06AEEE21F1BF5 /* Pods */,
-				E344139678144238E3F5FF12 /* Frameworks */,
+				7028782731DEEBDDB648030C /* Pods */,
+				D63B41F6CCA25A7ABD5BCBCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		05873A6A208BBD4F0029BED6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05873A69208BBD4F0029BED6 /* FreestarBannerApp.app */,
+				05873A69208BBD4F0029BED6 /* FreestarInterstitialApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		05873A6B208BBD4F0029BED6 /* FreestarBannerApp */ = {
+		05873A6B208BBD4F0029BED6 /* FreestarInterstitialApp */ = {
 			isa = PBXGroup;
 			children = (
 				05873A6C208BBD4F0029BED6 /* AppDelegate.swift */,
@@ -71,22 +71,22 @@
 				05873A78208BBD510029BED6 /* Info.plist */,
 				05873A83208CF35F0029BED6 /* Constants.swift */,
 			);
-			path = FreestarBannerApp;
+			path = FreestarInterstitialApp;
 			sourceTree = "<group>";
 		};
-		A35FBF6027B06AEEE21F1BF5 /* Pods */ = {
+		7028782731DEEBDDB648030C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C1A1C23707B08225C89093CD /* Pods-FreestarBannerApp.debug.xcconfig */,
-				94FE0E118008FFC90AC55262 /* Pods-FreestarBannerApp.release.xcconfig */,
+				F1E7B10DA10F57644CC5FEA1 /* Pods-FreestarInterstitialApp.debug.xcconfig */,
+				CD266B37014437ED147F56FE /* Pods-FreestarInterstitialApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		E344139678144238E3F5FF12 /* Frameworks */ = {
+		D63B41F6CCA25A7ABD5BCBCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D1B2E035CB24297B8196742C /* Pods_FreestarBannerApp.framework */,
+				98E5090B85BD75DDF7858FC9 /* Pods_FreestarInterstitialApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -94,23 +94,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05873A68208BBD4F0029BED6 /* FreestarBannerApp */ = {
+		05873A68208BBD4F0029BED6 /* FreestarInterstitialApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05873A7B208BBD510029BED6 /* Build configuration list for PBXNativeTarget "FreestarBannerApp" */;
+			buildConfigurationList = 05873A7B208BBD510029BED6 /* Build configuration list for PBXNativeTarget "FreestarInterstitialApp" */;
 			buildPhases = (
-				AE5CC43BB9DB664B5D6CF7AE /* [CP] Check Pods Manifest.lock */,
+				6CD3B03B9FB1ABF7708C85FC /* [CP] Check Pods Manifest.lock */,
 				05873A65208BBD4F0029BED6 /* Sources */,
 				05873A66208BBD4F0029BED6 /* Frameworks */,
 				05873A67208BBD4F0029BED6 /* Resources */,
-				E6AEE004951712E70ED2AA9A /* [CP] Embed Pods Frameworks */,
+				AE57F7F729D042148864F954 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FreestarBannerApp;
+			name = FreestarInterstitialApp;
 			productName = FreestarBannerApp;
-			productReference = 05873A69208BBD4F0029BED6 /* FreestarBannerApp.app */;
+			productReference = 05873A69208BBD4F0029BED6 /* FreestarInterstitialApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,7 +128,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 05873A64208BBD4F0029BED6 /* Build configuration list for PBXProject "FreestarBannerApp" */;
+			buildConfigurationList = 05873A64208BBD4F0029BED6 /* Build configuration list for PBXProject "FreestarInterstitialApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -141,7 +141,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05873A68208BBD4F0029BED6 /* FreestarBannerApp */,
+				05873A68208BBD4F0029BED6 /* FreestarInterstitialApp */,
 			);
 		};
 /* End PBXProject section */
@@ -160,7 +160,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AE5CC43BB9DB664B5D6CF7AE /* [CP] Check Pods Manifest.lock */ = {
+		6CD3B03B9FB1ABF7708C85FC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -171,20 +171,20 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FreestarBannerApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FreestarInterstitialApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E6AEE004951712E70ED2AA9A /* [CP] Embed Pods Frameworks */ = {
+		AE57F7F729D042148864F954 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-FreestarInterstitialApp/Pods-FreestarInterstitialApp-frameworks.sh",
 				"${PODS_ROOT}/FSAdSDK/SDK/FSCommon.framework",
 				"${PODS_ROOT}/FSAdSDK/SDK/FSDFP.framework",
 				"${PODS_ROOT}/FSAdSDK/SDK/FSAdSDK.framework",
@@ -201,7 +201,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FreestarInterstitialApp/Pods-FreestarInterstitialApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -355,7 +355,7 @@
 		};
 		05873A7C208BBD510029BED6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1A1C23707B08225C89093CD /* Pods-FreestarBannerApp.debug.xcconfig */;
+			baseConfigurationReference = F1E7B10DA10F57644CC5FEA1 /* Pods-FreestarInterstitialApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -366,7 +366,7 @@
 					"$(inherited)",
 					"GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
 				);
-				INFOPLIST_FILE = FreestarBannerApp/Info.plist;
+				INFOPLIST_FILE = FreestarInterstitialApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.freestar.mobile.Freestar-News";
@@ -378,12 +378,12 @@
 		};
 		05873A7D208BBD510029BED6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94FE0E118008FFC90AC55262 /* Pods-FreestarBannerApp.release.xcconfig */;
+			baseConfigurationReference = CD266B37014437ED147F56FE /* Pods-FreestarInterstitialApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FLA943DDZ8;
-				INFOPLIST_FILE = FreestarBannerApp/Info.plist;
+				INFOPLIST_FILE = FreestarInterstitialApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.freestar.mobile.Freestar-News";
@@ -396,7 +396,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05873A64208BBD4F0029BED6 /* Build configuration list for PBXProject "FreestarBannerApp" */ = {
+		05873A64208BBD4F0029BED6 /* Build configuration list for PBXProject "FreestarInterstitialApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05873A79208BBD510029BED6 /* Debug */,
@@ -405,7 +405,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05873A7B208BBD510029BED6 /* Build configuration list for PBXNativeTarget "FreestarBannerApp" */ = {
+		05873A7B208BBD510029BED6 /* Build configuration list for PBXNativeTarget "FreestarInterstitialApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05873A7C208BBD510029BED6 /* Debug */,

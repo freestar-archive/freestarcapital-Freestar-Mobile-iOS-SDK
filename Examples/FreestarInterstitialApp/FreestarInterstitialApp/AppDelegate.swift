@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FreestarBannerApp
+//  FreestarInterstitialApp
 //
 //  Created by Dean Chang on 4/21/18.
 //  Copyright © 2018 Freestar. All rights reserved.

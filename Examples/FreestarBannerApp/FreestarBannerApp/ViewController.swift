@@ -38,6 +38,7 @@ class ViewController: UIViewController {
                                                size: kGADAdSizeBanner,
                                                adUnitId: adUnitID,
                                                rootViewController: self,
+                                               registrationDelegate: nil,
                                                eventHandler:nil)
         
         let request: DFPRequest? = DFPRequest()
@@ -56,10 +57,9 @@ class ViewController: UIViewController {
         // registration completed
         //     initial = 0,
         //     error = 1,
-        //     ready = 2,
-        //     success = 3
+        //     succes = 2        
         print("status: \(status!)")
-//        if FSRegistrationStatus.ready.hashValue == status?.intValue {
+//        if FSRegistrationStatus.success.hashValue == status?.intValue {
             // load banner after registration is completed, optional
 //            loadBanner()
 //        }

@@ -63,3 +63,4 @@ fastlane/test_output
 iOSInjectionProject/
 Podfile.lock
 Examples/FreestarBannerApp/Pods
+Examples/FreestarInterstitialApp/Pods
