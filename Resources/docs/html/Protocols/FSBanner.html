@@ -56,25 +56,13 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/adUnitId">adUnitId</option>
-		
 		<option value="//api/name/fsAdSize">fsAdSize</option>
 		
-		<option value="//api/name/fsIdentifier">fsIdentifier</option>
-		
-		<option value="//api/name/fsRefreshRate">fsRefreshRate</option>
-		
 	</optgroup>
 	
 
 	
 
-	
-	<optgroup label="Instance Methods">
-		
-		<option value="//api/name/loadRequest:">- loadRequest:</option>
-		
-	</optgroup>
 	
 	
 </select>
@@ -95,7 +83,7 @@
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Conforms to</th>
-	<td>NSObject</td>
+	<td><a href="../Protocols/FSAdObject.html">FSAdObject</a></td>
 </tr><tr>
 	<th>Declared in</th>
 	<td>FSAdProvider.h</td>
@@ -108,7 +96,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Protocol that defines a banner object.</p>
+						<p>Protocol that defines a banner.</p>
 					</div>
 					
 					
@@ -124,129 +112,6 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/adUnitId" title="adUnitId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/adUnitId">&nbsp;&nbsp;adUnitId</a></code>
-<span class="task-item-suffix">required method</span></h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The ad loader&rsquo;s ad unit ID</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly, nonnull) NSString *adUnitId</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">FSAdProvider.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/fsIdentifier" title="fsIdentifier"></a>
-	<h3 class="method-title"><code><a href="#//api/name/fsIdentifier">&nbsp;&nbsp;fsIdentifier</a></code>
-<span class="task-item-suffix">required method</span></h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Freestar unique ad identifier, readonly</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly, nonnull) NSString *fsIdentifier</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">FSAdProvider.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/fsRefreshRate" title="fsRefreshRate"></a>
-	<h3 class="method-title"><code><a href="#//api/name/fsRefreshRate">&nbsp;&nbsp;fsRefreshRate</a></code>
-<span class="task-item-suffix">required method</span></h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Refresh rate, defaults to app config setting</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) NSTimeInterval fsRefreshRate</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">FSAdProvider.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/fsAdSize" title="fsAdSize"></a>
 	<h3 class="method-title"><code><a href="#//api/name/fsAdSize">&nbsp;&nbsp;fsAdSize</a></code>
 <span class="task-item-suffix">required method</span></h3>
@@ -287,59 +152,6 @@
 			
 		</div>
 	</div>
-</div><div class="section-method">
-	<a name="//api/name/loadRequest:" title="loadRequest:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/loadRequest:">&ndash;&nbsp;loadRequest:</a></code>
-<span class="task-item-suffix">required method</span></h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>This method allows the developer to load an ad request, applies to DFP only.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)loadRequest:(nullable GADRequest *)<em>request</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>request</code></th>
-						<td><p>DFP request.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">FSAdProvider.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
 </div>
 						</div>
 						
@@ -355,7 +167,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Freestar. All rights reserved. Updated: 2018-06-20</p>
+						<p class="copyright">Copyright &copy; 2018 Freestar. All rights reserved. Updated: 2018-08-02</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

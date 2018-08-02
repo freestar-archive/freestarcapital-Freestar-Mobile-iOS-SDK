@@ -1,6 +1,0 @@
-framework module FSBanner {
-  umbrella header "FSBanner.h"
-
-  export *
-  module * { export * }
-}

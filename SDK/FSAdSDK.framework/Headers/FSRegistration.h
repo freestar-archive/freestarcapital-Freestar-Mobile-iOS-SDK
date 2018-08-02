@@ -21,13 +21,9 @@ typedef NS_ENUM(NSUInteger, FSRegistrationStatus) {
      */
     FSRegistrationError = 1,
     /**
-     * Ready
-     */
-    FSRegistrationReady = 2,
-    /**
      * Success
      */
-    FSRegistrationSuccess = 3
+    FSRegistrationSuccess = 2
 };
 
 @class PBAdUnit;

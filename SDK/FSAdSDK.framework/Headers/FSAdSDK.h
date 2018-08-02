@@ -24,7 +24,7 @@ FOUNDATION_EXPORT const unsigned char FSAdSDKVersionString[];
 @interface FSAdSDK : NSObject
 
 /**
- * Test mode turns on openRTB test flag and points to the test environment.
+ * Test mode points to the FS test environment.
  * @param testMode Test mode flag where true enables test mode, false otherwise.
  */
 + (void)setTestMode:(BOOL)testMode;

@@ -1,0 +1,6 @@
+framework module FSDFP {
+  umbrella header "FSDFP.h"
+
+  export *
+  module * { export * }
+}
