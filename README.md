@@ -2,12 +2,17 @@
 # Freestar Mobile iOS SDK Integration Guide
 
 ### What's New
-We are pleased to announce the first release of our SDK !! This initial version only supports banner but please be sure to check-in frequently for the latest releases and announcements.
+We are pleased to announce the release of our SDK !! Banner and interstitial ad formats are currently supported, with more coming.  Be sure to check-in frequently for the latest releases and announcements.
 
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
 | __0.0.1__ | _June 21st, 2018_ |  Initial release. |
+| __0.1.0__ | _August 3rd, 2018_ |  Interstitial support, registration status delegate, and removed unnecessary dependency to core framework. |
+
+###### API Changes
+| __0.1.0__ | _August 3rd, 2018_ | Change to ad provider createBanner method.  Added registration delegate parameter.
+
 ---
 #### Minimum Requirements
 + Mac running macOS 10.13.2 or later
@@ -47,10 +52,9 @@ _[Work in progress, check back later.]_
 To be able to show ads from all demand sources, it is important to follow these steps for proper integration of the SDK into your app.  
 
 ###### Banner
-To see a working example, there is a sample banner app project included in this repository.  See [banner sample](Examples/FreestarBannerApp/).
+To see a working example, there is a sample banner app project included in this repository.  See the [banner sample](Examples/FreestarBannerApp/).
 
 `1.`  Register your app with Freestar in _AppDelegate.didFinishLaunchingWithOptions()_:
-
 ```swift
 import UIKit
 import FSAdSDK
@@ -68,8 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-`2.`  Create your banner ad objects, preferably in _ViewController.viewDidLoad()_.
-
+`2.`  Create your banner ad object(s), preferably in _ViewController.viewDidLoad()_.
 ```swift
 import UIKit
 import FSAdSDK
@@ -85,23 +88,118 @@ class ViewController: UIViewController {
 
         bannerView = FSAdProvider.createBanner(withIdentifier: adIdentifier,
                                                size: kGADAdSizeBanner,
-                                               adUnitId: adUnitID,
+                                               adUnitId: adUnitID,                                               
                                                rootViewController: self,
+                                               registrationDelegate: self,
                                                eventHandler:nil)
 
         let request: DFPRequest? = DFPRequest()
         bannerView?.load(request)
         addToView(bannerView) // for layout, see banner sample
     }
-...
+    ...
 }
 ```
-`3.`  Congratulations, that's it !!
+
+`3.`  Optional, to receive the registration status, implement FSRegistrationDelegate.  If so, please remember to pass self into the ad provider convenience constructor as the registrationDelegate parameter.
+```swift
+class ViewController: UIViewController, FSRegistrationDelegate {
+  ...
+  func didRegister(forIdentifier identifier: String!) {
+    print("didRegister: \(identifier)")
+  }
+
+  func didFailToRegister(forIdentifier identifier: String!) {
+    print("didFailToRegister: \(identifier)")
+  }
+}
+```
+
+`4.`  Congratulations, that's it !!
+
+
+###### Interstitial
+To see a working example, there is a sample interstitial app project included in this repository.  See the [interstitial sample](Examples/FreestarInterstitialApp/).
+
+`1.`  Register your app with Freestar in _AppDelegate.didFinishLaunchingWithOptions()_:
+```swift
+import UIKit
+import FSAdSDK
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?    
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    ...
+
+    // Freestar app registration
+    FSRegistration.register() // ensure your bundle identifier
+    return true
+}
+```
+
+`2.`  Create your interstitial ad object(s), preferably in _ViewController.viewDidLoad()_.
+```swift
+import UIKit
+import FSAdSDK
+import GoogleMobileAds
+
+class ViewController: UIViewController {
+  let adUnitID = "/your_dfp_adunit_ID/placement_id"   // DFP Ad Unit ID
+  let adIdentifier = "your_freestar_ad_identifier"    // Freestar Ad Identifier
+  var interstitial: FSInterstitial?  // interstitial
+
+  override func viewDidLoad() {
+       super.viewDidLoad()
+
+       interstitial = FSAdProvider.createInterstitial(withIdentifier: adIdentifier, adUnitId: adUnitID, registrationDelegate: nil, eventHandler: nil)
+       let request: DFPRequest? = DFPRequest()
+       interstitial?.load(request)
+   }
+   ...
+}
+```
+
+`3.`  When ready, present your interstitial.  Please ensure you are calling this on main thread.
+ ```swift
+class ViewController: UIViewController {
+
+  func someMethod() {
+    ...
+    self.presentInterstitial()  // main thread
+  }
+
+  func presentInterstitial() {
+       if (interstitial!.isReady) {
+           interstitial?.present(fromRootViewController: self)
+       }
+   }
+   ...
+ }
+ ```
+
+`4.`  Optional, to receive the registration status, implement FSRegistrationDelegate.  If so, please remember to pass self into the ad provider convenience constructor as the registrationDelegate parameter.
+```swift
+class ViewController: UIViewController, FSRegistrationDelegate {
+...
+  func didRegister(forIdentifier identifier: String!) {
+    print("didRegister: \(identifier)")
+  }
+
+  func didFailToRegister(forIdentifier identifier: String!) {
+    print("didFailToRegister: \(identifier)")
+  }
+}
+```
+
+`5.`  Congratulations, that's it !!
+
 
 ## Reference Guide
 The API reference guide for the SDK is available in this repository in HTML format. See [reference guide](Resources/docs/html/index.html).
 
 ---
 ## Questions
-If you have any questions, don’t hesitate to email us at [sdk@freestar.io](mailto:sdk@freestar.io).  
+If you have any questions, don’t hesitate to email us at [dean.chang@freestar.io](mailto:dean.chang@freestar.io).  
 Thank you.
