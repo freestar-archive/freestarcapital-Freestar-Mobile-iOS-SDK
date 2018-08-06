@@ -11,7 +11,7 @@ We are pleased to announce the release of our SDK !! Banner and interstitial ad 
 | __0.1.0__ | _August 6th, 2018_ |  • Interstitial support.<br> • Registration status delegate.<br> • Removed unnecessary dependency to core framework.
 
 ###### API Changes
- [ __0.1.0__ ] Change to ad provider createBanner method.  Added registration delegate parameter.
+ [ __0.1.0__ ] Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format.
 
 ---
 #### Minimum Requirements
