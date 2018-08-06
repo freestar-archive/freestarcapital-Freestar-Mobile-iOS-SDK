@@ -7,11 +7,11 @@ We are pleased to announce the release of our SDK !! Banner and interstitial ad 
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
-| __0.0.1__ | _June 21st, 2018_ |  Initial release. |
-| __0.1.0__ | _August 3rd, 2018_ |  Interstitial support, registration status delegate, and removed unnecessary dependency to core framework. |
+| __0.0.1__ | _June 21st, 2018_ |  • Initial release. |
+| __0.1.0__ | _August 6th, 2018_ |  • Interstitial support.<br> • Registration status delegate.<br> • Removed unnecessary dependency to core framework.
 
 ###### API Changes
-| __0.1.0__ | _August 3rd, 2018_ | Change to ad provider createBanner method.  Added registration delegate parameter.
+ [ __0.1.0__ ] Change to ad provider createBanner method.  Added registration delegate parameter.
 
 ---
 #### Minimum Requirements
@@ -46,7 +46,7 @@ end
 `3.` That's it as far as linking the SDK !! To continue, skip down to the [code integration](#code-integration) section of this document and follow those steps to complete the integration process.
 
 ###### Or Manually, Using Git
-_[Work in progress, check back later.]_
+Please [contact us](mailto:dean.chang@freestar.io) for details.
 
 ### Code Integration
 To be able to show ads from all demand sources, it is important to follow these steps for proper integration of the SDK into your app.  
@@ -115,7 +115,7 @@ class ViewController: UIViewController, FSRegistrationDelegate {
 }
 ```
 
-`4.`  Congratulations, that's it !!
+`4.`  Congratulations, that's it!
 
 
 ###### Interstitial
@@ -193,7 +193,7 @@ class ViewController: UIViewController, FSRegistrationDelegate {
 }
 ```
 
-`5.`  Congratulations, that's it !!
+`5.`  Congratulations, that's it!
 
 
 ## Reference Guide
@@ -201,5 +201,5 @@ The API reference guide for the SDK is available in this repository in HTML form
 
 ---
 ## Questions
-If you have any questions, don’t hesitate to email us at [dean.chang@freestar.io](mailto:dean.chang@freestar.io).  
+If you have any questions, don’t hesitate to [email us](mailto:dean.chang@freestar.io).  
 Thank you.
