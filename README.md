@@ -7,9 +7,10 @@ We are pleased to announce the release of our SDK !! Banner and interstitial ad 
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
-| __0.0.1__ | _June 21st, 2018_ |  • Initial release. |
-| __0.1.0__ | _August 6th, 2018_ |  • Interstitial support.<br> • Registration status delegate.<br> • Removed unnecessary dependency to core framework. |
 | __0.1.1__ | _August 13th, 2018_ |  • Fix to registration fallback url. |
+| __0.1.0__ | _August 6th, 2018_ |  • Interstitial support.<br> • Registration status delegate.<br> • Removed unnecessary dependency to core framework. |
+| __0.0.1__ | _June 21st, 2018_ |  • Initial release. |
+
 
 ###### API Changes
  [ __0.1.0__ ] Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format.
@@ -181,6 +182,7 @@ class ViewController: UIViewController {
  ```
 
 `4.`  Optional, to receive the registration status, implement FSRegistrationDelegate.  If so, please remember to pass self into the ad provider convenience constructor as the registrationDelegate parameter.
+
 ```swift
 class ViewController: UIViewController, FSRegistrationDelegate {
 ...
@@ -196,6 +198,49 @@ class ViewController: UIViewController, FSRegistrationDelegate {
 
 `5.`  Congratulations, that's it!
 
+## Event Handler
+Often times it is necessary to receive ad event callbacks, such as when an ad is received or when an ad has failed to load.  These callbacks are handled through the eventHandler method parameter (refer to the [reference guide](#reference-guide) relating to _FSAdProvider.createBanner_ or _FSAdProvider.createInterstitial_).  
+<br>
+_Warning: It is up to the discretion of the developer on how to handle these events, the below snippets are just generalized examples.  Do not implement this in your code without modification._
+
+#### Banner Event Handler
+```swift
+eventHandler: { [weak self] (methodName: String!, params: [ String : Any]) in...
+```
+There are two parameters that are passed into the eventHandler closure expression, one is the methodName (string type) and the other is the parameter info (key value type).  Below are some common ad events and examples of how each of these events can be handled.  
+
+###### adViewDidReceiveAd:
+
+In order to react to the receiving of an ad, the eventHandler must check for a matching methodName parameter.  In this case the methodName parameter is **_adViewDidReceiveAd:_**. Here is an example which adds the banner view to it's parent view when an ad is received:
+```swift
+bannerView = FSAdProvider.createBanner(withIdentifier: adIdentifier,
+                                       size: kGADAdSizeMediumRectangle,
+                                       adUnitId: adUnitID,
+                                       rootViewController: self,
+                                       registrationDelegate: nil,
+                                       eventHandler: { [weak self] (methodName: String!, params: [ String : Any]) in
+                                            // create a reference to the banner
+                                            let banner: UIView? = params["bannerView"] as? UIView
+                                            if (methodName == "adViewDidReceiveAd:") {
+                                                // convenience method to add the banner to self.view
+                                                self?.addToView(banner)
+                                            }
+                                    })
+```
+
+#### Banner Ad Events List
+Below is a chart that lists and describes all the ad events related to banner.
+
+| Ad Event (methodName) | Parameter Key | Action | Description |
+| ---- | ------- | --- | ----------- |
+| adViewDidReceiveAd: | bannerView | _success_ | Ad request successfully received an ad. |
+| adView:didFailToReceiveAdWithError:	| bannerView, <br> error | _failure_ | Ad request failure, or no ad available. |
+| adViewWillPresentScreen: | bannerView | _touch or tap_ | A full screen view will be presented in response to the user tapping on an ad. |
+| adViewWillDismissScreen: | bannerView | _touch or tap_ | The full screen view will be dismissed. |
+| adViewDidDismissScreen: | bannerView | _touch or tap_ | The full screen view has been dismissed. |
+| adViewWillLeaveApplication: | bannerView | _touch or tap_ | The user click will open another app, backgrounding the current application |
+
+_Note: In the next SDK release, we will be creating a constants class that defines and contains all of the ad event or methodNames.  Please be sure to use this constants class for convenience instead of hardcoding the methodName string._
 
 ## Reference Guide
 The API reference guide for the SDK is available in this repository in HTML format. See [reference guide](Resources/docs/html/index.html).
