@@ -10,11 +10,12 @@ import UIKit
 import FSAdSDK
 import GoogleMobileAds
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FSRegistrationDelegate {
+    
     // DFP Ad Unit ID
-    let adUnitID = "/15184186/Freestar_Test_320x50"
+    let adUnitID = "/15184186/Freestar_Test_300x250"
     // Freestar Ad Identifier
-    let adIdentifier = "Freestar_Test_320x50"
+    let adIdentifier = "Freestar_Test_300x250"
     // banner
     var bannerView: (UIView & FSBanner)?
     
@@ -28,84 +29,65 @@ class ViewController: UIViewController {
         
         let notification = NotificationCenter.default
         // notification to check registration status, optional
-        notification.addObserver(self, selector: #selector(self.receivedRegistrationStatus(_:)), name: .FSRegistrationStatus, object: nil)        
-        // load banner
-        loadBanner()
+        notification.addObserver(self, selector: #selector(self.receivedRegistrationStatus(_:)), name: .FSRegistrationStatus, object: nil)
     }
     
     func loadBanner() {
         bannerView = FSAdProvider.createBanner(withIdentifier: adIdentifier,
-                                               size: kGADAdSizeBanner,
+                                               size: kGADAdSizeMediumRectangle,
                                                adUnitId: adUnitID,
                                                rootViewController: self,
-                                               registrationDelegate: nil,
-                                               eventHandler:nil)
-        
+                                               registrationDelegate: self,
+                                               eventHandler: { [weak self]
+                                                    (methodName: String!, params: [ String : Any]) in
+                                                    if (methodName == DFPEventNameBanner.adViewDidReceiveAd.rawValue) {
+                                                        // implement your custom logic here
+                                                    }
+                                                })
         let request: DFPRequest? = DFPRequest()
         bannerView?.load(request)
-        addToView(bannerView)
+        self.view.addSubview(self.bannerView!)
+        self.anchorBanner(self.bannerView, size: (self.bannerView?.fsAdSize)!)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    // anchor banner to center of superview
+    func anchorBanner(_ banner: UIView?, size: CGSize) {
+        banner?.translatesAutoresizingMaskIntoConstraints = false
+        banner?.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        banner?.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        if (banner!.superview != nil) {
+            let statusBarHeight = UIApplication.shared.statusBarFrame.height
+            banner?.centerXAnchor.constraint(equalTo: banner!.superview!.centerXAnchor).isActive = true
+            banner?.topAnchor.constraint(equalTo: banner!.superview!.topAnchor, constant: statusBarHeight).isActive = true
+        }
+    }
     
-    // Freestar registration notification callback, optional
+    // Freestar registration notification callback
     @objc func receivedRegistrationStatus(_ notification: NSNotification) {
         let status: NSNumber? = notification.userInfo!["status"] as? NSNumber
         // registration completed
-        //     initial = 0,
-        //     error = 1,
-        //     succes = 2        
+        //     initial  = 0,
+        //     error    = 1,
+        //     success  = 2
         print("status: \(status!)")
-//        if FSRegistrationStatus.success.hashValue == status?.intValue {
+        if FSRegistrationStatus.success.rawValue == status?.uintValue {
             // load banner after registration is completed, optional
-//            loadBanner()
-//        }
-    }
-
-    // UI layout
-    func addToView(_ bannerView: UIView?) {
-        bannerView?.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView!)
-        
-        var constraints: [NSLayoutConstraint]
-        if #available(iOS 11.0, *) {
-            constraints =
-                [NSLayoutConstraint(item: bannerView!,
-                                          attribute: .top,
-                                          relatedBy: .equal,
-                                          toItem: view.safeAreaLayoutGuide,
-                                          attribute: .top,
-                                          multiplier: 1,
-                                          constant: 0),
-                       NSLayoutConstraint(item: bannerView!,
-                                          attribute: .centerX,
-                                          relatedBy: .equal,
-                                          toItem: view,
-                                          attribute: .centerX,
-                                          multiplier: 1,
-                                          constant: 0)]
-        } else {
-           constraints =
-                [NSLayoutConstraint(item: bannerView!,
-                                    attribute: .top,
-                                    relatedBy: .equal,
-                                    toItem: topLayoutGuide,
-                                    attribute: .top,
-                                    multiplier: 1,
-                                    constant: 0),
-                 NSLayoutConstraint(item: bannerView!,
-                                    attribute: .centerX,
-                                    relatedBy: .equal,
-                                    toItem: view,
-                                    attribute: .centerX,
-                                    multiplier: 1,
-                                    constant: 0)]
+            loadBanner()
         }
-        
-        view.addConstraints(constraints)        
+    }
+    
+    // MARK: FSRegistrationDelegate
+    func didRegister(forIdentifier identifier: String!) {
+        print("registration success.")
+    }
+    
+    func didFailToRegister(forIdentifier identifier: String!) {
+        print("registration failure.")
     }
 }
 

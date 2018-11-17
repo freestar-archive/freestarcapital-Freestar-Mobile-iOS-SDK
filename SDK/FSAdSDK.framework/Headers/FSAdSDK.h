@@ -17,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char FSAdSDKVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <FSAdSDK/PublicHeader.h>
 #import "FSRegistration.h"
 #import "FSAdProvider.h"
+#import "FSAdSDKConstants.h"
 
 /**
  * Umbrella class for generic application settings.
@@ -28,5 +29,12 @@ FOUNDATION_EXPORT const unsigned char FSAdSDKVersionString[];
  * @param testMode Test mode flag where true enables test mode, false otherwise.
  */
 + (void)setTestMode:(BOOL)testMode;
+
+/**
+ * Setting related to the sending of SDK analytics.
+ * @param enabled true will enabled the sending of analytics, false otherwise.
+ */
++ (void)setAnalyticsEnabled:(BOOL)enabled;
+
 
 @end

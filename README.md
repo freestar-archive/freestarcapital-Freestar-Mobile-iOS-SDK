@@ -7,13 +7,19 @@ We are pleased to announce the release of our SDK !! Banner and interstitial ad 
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.2.0__ | _November 20th, 2018_ |  • Analytics support.<br> • GMA SDK runtime updates.<br> • Pause and resume API for banner auto-refresh.<br> • Event name convenience constants. |
 | __0.1.1__ | _August 13th, 2018_ |  • Fix to registration fallback url. |
 | __0.1.0__ | _August 6th, 2018_ |  • Interstitial support.<br> • Registration status delegate.<br> • Removed unnecessary dependency to core framework. |
 | __0.0.1__ | _June 21st, 2018_ |  • Initial release. |
 
-
 ###### API Changes
- [ __0.1.0__ ] Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format.
+[ __0.2.0__ ]<br>
+• [Pause and resume](#banner-auto-refresh-pause-and-resume) for banner auto-refresh.<br>
+• [Banner convenience constants](#banner-ad-events-matrix) to detect event handler callback parameter.<br>
+• [Interstitial convenience constants](#interstitial-ad-events-matrix) to detect interstitial event handler callback parameter.<br>
+<br>
+[ __0.1.0__ ]<br>
+• Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format.
 
 ---
 #### Minimum Requirements
@@ -117,8 +123,18 @@ class ViewController: UIViewController, FSRegistrationDelegate {
 }
 ```
 
-`4.`  Congratulations, that's it!
+###### Banner Auto Refresh Pause and Resume
 
+`1.`  Optional, to pause or resume banner auto-refresh, call _resumeRefresh()_ or _pauseRefresh()_.  During moments when the banner is still in the window but is behind other views, it is recommended to pause auto-refresh.  Also be sure to resume refresh when appropriate.
+```swift
+override func viewWillDisappear(_ animated: Bool) {
+  bannerView!.pauseRefresh()
+}
+
+override func viewWillAppear(_ animated: Bool) {
+  bannerView!.resumeRefresh()
+}
+```
 
 ###### Interstitial
 To see a working example, there is a sample interstitial app project included in this repository.  See the [interstitial sample](Examples/FreestarInterstitialApp/).
@@ -130,14 +146,14 @@ import FSAdSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?    
+  var window: UIWindow?    
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    ...
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  ...
 
-    // Freestar app registration
-    FSRegistration.register() // ensure your bundle identifier
-    return true
+  // Freestar app registration
+  FSRegistration.register() // ensure your bundle identifier
+  return true
 }
 ```
 
@@ -153,11 +169,11 @@ class ViewController: UIViewController {
   var interstitial: FSInterstitial?  // interstitial
 
   override func viewDidLoad() {
-       super.viewDidLoad()
+     super.viewDidLoad()
 
-       interstitial = FSAdProvider.createInterstitial(withIdentifier: adIdentifier, adUnitId: adUnitID, registrationDelegate: nil, eventHandler: nil)
-       let request: DFPRequest? = DFPRequest()
-       interstitial?.load(request)
+     interstitial = FSAdProvider.createInterstitial(withIdentifier: adIdentifier, adUnitId: adUnitID, registrationDelegate: nil, eventHandler: nil)
+     let request: DFPRequest? = DFPRequest()
+     interstitial?.load(request)
    }
    ...
 }
@@ -196,8 +212,6 @@ class ViewController: UIViewController, FSRegistrationDelegate {
 }
 ```
 
-`5.`  Congratulations, that's it!
-
 ## Event Handler
 Often times it is necessary to receive ad event callbacks, such as when an ad is received or when an ad has failed to load.  These callbacks are handled through the eventHandler method parameter (refer to the [reference guide](#reference-guide) relating to _FSAdProvider.createBanner_ or _FSAdProvider.createInterstitial_).  
 <br>
@@ -221,26 +235,35 @@ bannerView = FSAdProvider.createBanner(withIdentifier: adIdentifier,
                                        eventHandler: { [weak self] (methodName: String!, params: [ String : Any]) in
                                             // create a reference to the banner
                                             let banner: UIView? = params["bannerView"] as? UIView
-                                            if (methodName == "adViewDidReceiveAd:") {
+                                            if (methodName == DFPEventNameBanner.adViewDidReceiveAd.rawValue) {
                                                 // convenience method to add the banner to self.view
                                                 self?.addToView(banner)
                                             }
                                     })
 ```
 
-#### Banner Ad Events List
+#### Banner Ad Events Matrix
 Below is a chart that lists and describes all the ad events related to banner.
 
-| Ad Event (methodName) | Parameter Key | Action | Description |
-| ---- | ------- | --- | ----------- |
-| adViewDidReceiveAd: | bannerView | _success_ | Ad request successfully received an ad. |
-| adView:didFailToReceiveAdWithError:	| bannerView, <br> error | _failure_ | Ad request failure, or no ad available. |
-| adViewWillPresentScreen: | bannerView | _touch or tap_ | A full screen view will be presented in response to the user tapping on an ad. |
-| adViewWillDismissScreen: | bannerView | _touch or tap_ | The full screen view will be dismissed. |
-| adViewDidDismissScreen: | bannerView | _touch or tap_ | The full screen view has been dismissed. |
-| adViewWillLeaveApplication: | bannerView | _touch or tap_ | The user click will open another app, backgrounding the current application |
+| Ad Event | Constant | Parameter Key(s) | Description |
+| ------- | ------ | ------- | ----------- |
+| -adViewDidReceiveAd: | *DFPEventNameBannerAdViewDidReceiveAd* | bannerView | Ad request successfully received an ad. |
+| -adView:didFailToReceiveAdWithError:	| *DFPEventNameBannerAdViewDidFailToReceiveAd* | bannerView, error | Ad request failure, or no ad available. |
+| -adViewWillPresentScreen: | *DFPEventNameBannerAdViewWillPresentFullScreen* | bannerView | A full screen view will be presented in response to the user tapping on an ad. |
+| -adViewWillDismissScreen: | *DFPEventNameBannerAdViewWillDismissScreen* | bannerView | The full screen view will be dismissed. |
+| -adViewDidDismissScreen: | *DFPEventNameBannerAdViewDidDismissScreen* | bannerView | The full screen view has been dismissed. |
+| -adViewWillLeaveApplication: | *DFPEventNameBannerAdViewWillLeaveApplication* | bannerView | The user click will open another app, backgrounding the current application |
 
-_Note: In the next SDK release, we will be creating a constants class that defines and contains all of the ad event or methodNames.  Please be sure to use this constants class for convenience instead of hardcoding the methodName string._
+#### Interstitial Ad Events Matrix
+| Ad Event (methodName) | Constant | Parameter Key(s) | Description |
+| ---- | ------ | ------- | ----------- |
+| -interstitialDidReceiveAd: | *DFPEventNameInterstitialDidReceiveAd* | interstitial | Interstitial ad request succeeded. |
+| -interstitial:didFailToReceiveAdWithError: | *DFPEventNameInterstitialDidFailToReceiveAdWithError* | interstitial, error | Interstitial ad request completed without an interstitial to show. |
+| -interstitialWillPresentScreen: | *DFPEventNameInterstitialWillPresentScreen* | interstitial | Interstitial will animate onto the screen. |
+| -interstitialDidFailToPresentScreen: | *DFPEventNameInterstitialDidFailToPresentScreen* | interstitial | Interstitial failed to present. |
+| -interstitialWillDismissScreen: | *DFPEventNameInterstitialWillDismissScreen* | interstitial | Interstitial is to be animated off the screen. |
+| -interstitialDidDismissScreen: | *DFPEventNameInterstitialDidDismissScreen* | interstitial | Interstitial has animated off the screen. |
+| -interstitialWillLeaveApplication: | *DFPEventNameInterstitialWillLeaveApplication* | interstitial | Application will background or terminate because the user clicked on an ad that will launch another application. |
 
 ## Reference Guide
 The API reference guide for the SDK is available in this repository in HTML format. See [reference guide](Resources/docs/html/index.html).

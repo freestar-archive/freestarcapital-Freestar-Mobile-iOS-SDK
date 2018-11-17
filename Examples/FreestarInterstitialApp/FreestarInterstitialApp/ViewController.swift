@@ -10,7 +10,8 @@ import UIKit
 import FSAdSDK
 import GoogleMobileAds
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FSRegistrationDelegate {
+    
     // DFP Ad Unit ID
     let adUnitID = "/15184186/freestar_test_Interstitial"
     // Freestar Ad Identifier
@@ -43,6 +44,12 @@ class ViewController: UIViewController {
         if (interstitial!.isReady) {
             interstitial?.present(fromRootViewController: self)
             loadingLabel?.text = "Done."
+        } else {
+            loadingLabel?.text = "Retrying..."
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                // present interstitial
+                self.presentInterstitial()
+            }
         }
     }
 
@@ -51,18 +58,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // Freestar registration notification callback, optional
+    // Freestar registration notification callback
     @objc func receivedRegistrationStatus(_ notification: NSNotification) {
         let status: NSNumber? = notification.userInfo!["status"] as? NSNumber
         // registration completed
-        //     initial = 0,
-        //     error = 1,
-        //     succes = 2        
+        //     initial  = 0,
+        //     error    = 1,
+        //     success  = 2
         print("status: \(status!)")
-        
-        // load interstitial after registration is completed
-        if FSRegistrationStatus.success.hashValue == status?.intValue {
-             loadInterstitial()
+        if FSRegistrationStatus.success.rawValue == status?.uintValue {
+            // load banner after registration is completed, optional
+            loadInterstitial()
             
             // 5 second delay to allow interstitial to become ready
             DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
@@ -70,6 +76,15 @@ class ViewController: UIViewController {
                 self.presentInterstitial()
             }
         }
+    }
+    
+    // MARK: FSRegistrationDelegate
+    func didRegister(forIdentifier identifier: String!) {
+        print("registration success.")
+    }
+    
+    func didFailToRegister(forIdentifier identifier: String!) {
+        print("registration failure.")
     }
 }
 

@@ -16,7 +16,11 @@
 @property (nonatomic, assign) NSTimeInterval fsRefreshRate;
 @property (nonatomic, copy) NSString *fsIdentifier;
 @property (nonatomic, weak) id<FSRegistrationDelegate> registrationDelegate;
+@property (nonatomic, assign, getter=isPaused, readonly) BOOL paused;
 
 - (instancetype)initWithEventHandler:(void(^)(NSString *__nonnull methodName, NSDictionary<NSString*, id> *__nonnull params))eventHandler;
+
+- (void)pauseRefresh;
+- (void)resumeRefresh;
 
 @end
