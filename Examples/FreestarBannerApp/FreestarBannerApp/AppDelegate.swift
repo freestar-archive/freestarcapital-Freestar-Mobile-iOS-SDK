@@ -18,15 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var locationManager: CLLocationManager = CLLocationManager()
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {        
-        // Override point for customization after application launch.
-        // set SDK log level
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        /// Override point for customization after application launch.
+        /// set SDK log level
         PBLogManager.setPBLogLevel(PBLogLevel.off)
         FSLogManager.setFSLogLevel(FSLogLevel.off)
         
-        // location aware advertisement, optional
+        /// location aware advertisement, optional
         setupLocationManager()
-        // additional targeting, optional
+        /// additional targeting, optional
 //        applyTargeting()
         
         // Freestar app registration

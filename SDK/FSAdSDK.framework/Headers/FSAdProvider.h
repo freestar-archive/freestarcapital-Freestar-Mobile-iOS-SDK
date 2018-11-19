@@ -74,6 +74,17 @@ typedef struct GADAdSize GADAdSize;
  */
 @property(nonatomic, readonly, assign) CGSize fsAdSize;
 
+/**
+ * This method allows the developer to pause autoRefresh of an ad.
+ */
+- (void)pauseRefresh;
+
+/**
+ * This method allows the developer to resume autoRefresh of a paused ad.  Note:
+ * Calling this method will cause the banner to immediately reload.
+ */
+- (void)resumeRefresh;
+
 @end
 
 /**

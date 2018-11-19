@@ -185,11 +185,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks.sh",
-				"${PODS_ROOT}/FSAdSDK/SDK/FSCommon.framework",
-				"${PODS_ROOT}/FSAdSDK/SDK/FSDFP.framework",
-				"${PODS_ROOT}/FSAdSDK/SDK/FSAdSDK.framework",
+				"${PODS_ROOT}/FSAdSDK/Pods/FSCommon/build/FSCommon.framework",
+				"${PODS_ROOT}/FSAdSDK/Pods/FSDFP/build/FSDFP.framework",
+				"${BUILT_PRODUCTS_DIR}/FSAdSDK/FSAdSDK.framework",
 				"${PODS_ROOT}/FSCache/build/FSCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PrebidMobileFS/PrebidMobileFS.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -198,6 +199,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSAdSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PrebidMobileFS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -374,7 +376,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.freestar.mobile.Freestar-News";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -394,7 +396,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.freestar.mobile.Freestar-News";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

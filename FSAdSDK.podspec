@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'FSAdSDK'
-  s.version          = '0.1.1'
+  s.version          = '0.2.0'
   s.summary          = 'Freestar iOS Mobile Advertising SDK.'
   s.description      = "Freestar's SDK to easily display ads from over 30 demand sources. Visit freestar.io for more info."
   s.homepage         = 'https://freestar.io'
@@ -11,6 +11,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git', :tag => s.version.to_s }
   s.default_subspec  = 'Core'
   s.dependency	       'FSCache'
+  s.dependency	       'Protobuf'
+  s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
 
   s.subspec 'Core' do |core|
     core.dependency 'FSAdSDK/Registration'

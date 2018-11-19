@@ -6,11 +6,15 @@
 	<dict>
 		<key>Headers/FSAdProvider.h</key>
 		<data>
-		LbnDntuvFUMOI/iShLOiPcPMpI0=
+		U73g5KyvWy4rsQAjHPuV13jtJS8=
 		</data>
 		<key>Headers/FSAdSDK.h</key>
 		<data>
-		2VDOKtGrUaKt6jjkvbzfai06BxU=
+		FhFJnjeRQCgyxE85lYT/ZQIXq2o=
+		</data>
+		<key>Headers/FSAdSDKConstants.h</key>
+		<data>
+		0RGgsHNQAZOTza5jaLSvTfL6CYs=
 		</data>
 		<key>Headers/FSRegistration.h</key>
 		<data>
@@ -18,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		YuhOAoTpqoWN30Qt9q7v6DY9tds=
+		bdbwQYJk9XcpzJLs1Bj7WDLmn+o=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -31,22 +35,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LbnDntuvFUMOI/iShLOiPcPMpI0=
+			U73g5KyvWy4rsQAjHPuV13jtJS8=
 			</data>
 			<key>hash2</key>
 			<data>
-			yx03XSFH+t1YuXQGzT847p1pUVG96g2HE+VlVmqnkG4=
+			D2VXtiL0dh5JWcexfwAyKe9DG/iSdO8QDrv7cnaptGs=
 			</data>
 		</dict>
 		<key>Headers/FSAdSDK.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2VDOKtGrUaKt6jjkvbzfai06BxU=
+			FhFJnjeRQCgyxE85lYT/ZQIXq2o=
 			</data>
 			<key>hash2</key>
 			<data>
-			wxeYQnUTE+vU41xZ9vpRAQVPHADP4u9cpEe3EwToEro=
+			O3boIljsQOOYvCPQiGyABHVTHfbv0QJkS9su/EHIHxU=
+			</data>
+		</dict>
+		<key>Headers/FSAdSDKConstants.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0RGgsHNQAZOTza5jaLSvTfL6CYs=
+			</data>
+			<key>hash2</key>
+			<data>
+			OPnMrpRRa4xrQaybez7G8dzGWnqoTO1JtpsJ0RXFwxY=
 			</data>
 		</dict>
 		<key>Headers/FSRegistration.h</key>
