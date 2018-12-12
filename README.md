@@ -265,6 +265,29 @@ Below is a chart that lists and describes all the ad events related to banner.
 | -interstitialDidDismissScreen: | *DFPEventNameInterstitialDidDismissScreen* | interstitial | Interstitial has animated off the screen. |
 | -interstitialWillLeaveApplication: | *DFPEventNameInterstitialWillLeaveApplication* | interstitial | Application will background or terminate because the user clicked on an ad that will launch another application. |
 
+## Targeting Parameters
+By default, the iOS Prebid Mobile SDK does not automatically send location information. In order for Prebid Mobile to use location information for targeting, the app developer must explicitly pass the location information to Prebid Mobile.
+
+Note: Developers should ensure adequate consent is obtained before sharing location information. Developers can control whether location is collected and sent by Prebid Mobile.
+
+#### iTunes Id
+Currently, demand partners use iTunes Track Id to identify iOS apps.  It is recommended to do this in _AppDelegate.didFinishLaunchingWithOptions()_:
+
+```swift
+import UIKit
+import PrebidMobileFS
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  var window: UIWindow?    
+
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    PBTargetingParams.sharedInstance().itunesID = "123456789"
+  }
+}
+```
+
+
 ## Reference Guide
 The API reference guide for the SDK is available in this repository in HTML format. See [reference guide](Resources/docs/html/index.html).
 
