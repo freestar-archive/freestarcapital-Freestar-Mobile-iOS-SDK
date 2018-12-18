@@ -344,7 +344,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #### NSFW Content for AdX
 To avoid getting AdX blacklisted, it is _required_ to pass an extra targeting parameter if there is NSFW content in the app due to GAM's (Google Ad Manager) content restriction guidelines.
 ```swift
-  PBTargetingParams.sharedInstance().setUserKeywords("campaign", withValue: "NSFW")
+  let request = DFPRequest()
+  request.customTargeting = ["campaign" : "NSFW"]
 ```
 
 #### GDPR Consent
