@@ -378,7 +378,7 @@ You can set a key to have an array of values with the following API:
 The preceding commands will result in the following request JSON body construct:
 ```swift
 user = {
-  keywords = "foo=bar,foo=baz,foo=bay,foo=bee";
+  keywords = "foo=bat,foo=bee,foo=bar";
 };
 ```
 
