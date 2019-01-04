@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK !! Banner and interstitial ad 
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.3.0__ | _January 4th, 2019_ |  • Dynamic iTunes Id.<br> • Ad size lock down.<br> • BeachFront demand bidder.
 | __0.2.0__ | _November 20th, 2018_ |  • Analytics support.<br> • GMA SDK runtime updates.<br> • Pause and resume API for banner auto-refresh.<br> • Event name convenience constants. |
 | __0.1.1__ | _August 13th, 2018_ |  • Fix to registration fallback url. |
 | __0.1.0__ | _August 6th, 2018_ |  • Interstitial support.<br> • Registration status delegate.<br> • Removed unnecessary dependency to core framework. |
@@ -264,6 +265,123 @@ Below is a chart that lists and describes all the ad events related to banner.
 | -interstitialWillDismissScreen: | *DFPEventNameInterstitialWillDismissScreen* | interstitial | Interstitial is to be animated off the screen. |
 | -interstitialDidDismissScreen: | *DFPEventNameInterstitialDidDismissScreen* | interstitial | Interstitial has animated off the screen. |
 | -interstitialWillLeaveApplication: | *DFPEventNameInterstitialWillLeaveApplication* | interstitial | Application will background or terminate because the user clicked on an ad that will launch another application. |
+
+## Targeting Parameters
+To be able to support targeting for our various demand partners, it is important to use the Prebid Mobile API.  By using this API, the developer is assured that targeting will be set on all Prebid related ad objects.
+
+#### User Location
+By default, the iOS Prebid Mobile SDK does not automatically send location information. In order for Prebid Mobile to use location information for targeting, the app developer must explicitly pass the location information to the Prebid Mobile API.
+
+_Note: Developers should ensure adequate consent is obtained before sharing location information. Developers can control whether location is collected and sent by the SDK._
+
+In this snippet, we create a location manager property, create a _setupLocationManager()_ method and implement the _CLLocationManagerDelegate_ delegate:
+
+```swift
+import UIKit
+import CoreLocation
+import PrebidMobileFS
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+  var locationManager: CLLocationManager = CLLocationManager()
+
+  ...
+
+  func setupLocationManager() {
+    // guard to ensure minimum iOS level
+    guard #available(iOS 8, *) else {
+        return
+    }
+
+    locationManager.delegate = self
+    locationManager.distanceFilter = kCLDistanceFilterNone
+    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+    locationManager.requestWhenInUseAuthorization()
+    locationManager.startUpdatingLocation()
+  }
+
+
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    PBTargetingParams.sharedInstance().location = locations.last
+  }
+}
+
+```
+
+#### Age and Gender
+
+```swift
+import UIKit
+import PrebidMobileFS
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  var window: UIWindow?    
+
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {\
+    PBTargetingParams.sharedInstance().age = 24;
+    PBTargetingParams.sharedInstance().gender = PBTargetingParamsGender.female;
+  }
+}
+```
+
+#### iTunes Id Override
+Currently, demand partners use iTunes Track Id to identify iOS apps.  Normally, iTunes Id is set automatically (0.3.0+), however this provides a way to override the iTunes Id.
+
+```swift
+import UIKit
+import PrebidMobileFS
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  var window: UIWindow?    
+
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    PBTargetingParams.sharedInstance().itunesID = "123456789"
+  }
+}
+```
+
+#### NSFW Content for AdX
+To avoid getting AdX blacklisted, it is _required_ to pass an extra targeting parameter if there is NSFW content in the app due to GAM's (Google Ad Manager) content restriction guidelines.
+```swift
+  let request = DFPRequest()
+  request.customTargeting = ["campaign" : "NSFW"]
+```
+
+#### GDPR Consent
+Prebid Mobile supports the [IAB GDPR recommendations](https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/master/Mobile%20In-App%20Consent%20APIs%20v1.0%20Draft%20for%20Public%20Comment.md). For a general overview of Prebid Mobile support for GDPR, see [Prebid Mobile Guide to European Ad Inventory and Providing Notice, Transparency and Choice]({{site.github.url}}/prebid-mobile/gdpr.html)
+
+Enable or disable the ability to provide consent.  By default, GDPR is set to _false_.
+```swift
+  PBTargetingParams.sharedInstance().subjectToGDPR = true
+```
+_Note: If GDPR subject is set to true, setting the consent string is required._
+```swift
+  PBTargetingParams.sharedInstance().gdprConsentString = "sample_consent_string"
+```
+Prebid mobile also checks if the values are present in the [NSUserDefaults](https://developer.apple.com/documentation/foundation/nsuserdefaults#1664798?language=objc) keys specified by the IAB. If the values are also set in these objects they will be passed in the OpenRTB request object.
+
+#### Custom Keywords
+Custom keywords are used to attach arbitrary key/value pairs to the ad call. Use key/value pairs to add users to segments, as shown here:
+
+```swift
+  PBTargetingParams.sharedInstance().setUserKeywords("foo", withValues: ["bat"])
+  PBTargetingParams.sharedInstance().setUserKeywords("foo", withValues: ["bee"])
+  PBTargetingParams.sharedInstance().setUserKeywords("foo", withValues: ["bar"])
+```
+If a value is set for an existing keyword, the value for the key is replaced with the new value. In the preceding example, the key foo will have a value of _bar_, the most recent value associated with that key.
+
+You can set a key to have an array of values with the following API:
+```swift
+  PBTargetingParams.sharedInstance().setUserKeywords("foo", withValues: ["bat", "bee", "bar"])
+```
+The preceding commands will result in the following request JSON body construct:
+```swift
+user = {
+  keywords = "foo=bat,foo=bee,foo=bar";
+};
+```
 
 ## Reference Guide
 The API reference guide for the SDK is available in this repository in HTML format. See [reference guide](Resources/docs/html/index.html).
