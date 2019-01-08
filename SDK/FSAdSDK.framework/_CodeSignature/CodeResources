@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/FSAdProvider.h</key>
 		<data>
-		U73g5KyvWy4rsQAjHPuV13jtJS8=
+		hMroVwfbHL725nUNFPpWArdsc1E=
 		</data>
 		<key>Headers/FSAdSDK.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bdbwQYJk9XcpzJLs1Bj7WDLmn+o=
+		HeLtTljcZKBoeYRPTYCcfJ2iJWY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,11 +35,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			U73g5KyvWy4rsQAjHPuV13jtJS8=
+			hMroVwfbHL725nUNFPpWArdsc1E=
 			</data>
 			<key>hash2</key>
 			<data>
-			D2VXtiL0dh5JWcexfwAyKe9DG/iSdO8QDrv7cnaptGs=
+			Z0m3gra+lcDPgkirHikBaksD0d7PnyxXdtw9Y1tutig=
 			</data>
 		</dict>
 		<key>Headers/FSAdSDK.h</key>

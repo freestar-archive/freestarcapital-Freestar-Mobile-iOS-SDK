@@ -7,7 +7,7 @@ We are pleased to announce the release of our SDK !! Banner and interstitial ad 
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
-| __0.3.0__ | _January 4th, 2019_ |  • Dynamic iTunes Id.<br> • Ad size lock down.<br> • BeachFront demand bidder.
+| __0.3.0__ | _January 7th, 2019_ |  • Dynamic iTunes Id.<br> • Ad size lock down.<br> • BeachFront demand bidder.
 | __0.2.0__ | _November 20th, 2018_ |  • Analytics support.<br> • GMA SDK runtime updates.<br> • Pause and resume API for banner auto-refresh.<br> • Event name convenience constants. |
 | __0.1.1__ | _August 13th, 2018_ |  • Fix to registration fallback url. |
 | __0.1.0__ | _August 6th, 2018_ |  • Interstitial support.<br> • Registration status delegate.<br> • Removed unnecessary dependency to core framework. |
@@ -382,6 +382,19 @@ user = {
   keywords = "foo=bat,foo=bee,foo=bar";
 };
 ```
+
+## Analytics
+Prebid analytics is disabled by default.  However, if granular reporting is required, please enable analytics using _PBAnalyticsManager_ in your AppDelegate.  Here is an example showing how to enable analytics:
+```swift
+import PrebidMobileFS
+
+...
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  PBAnalyticsManager.sharedInstance()?.enabled = true  
+}
+```
+
 
 ## Reference Guide
 The API reference guide for the SDK is available in this repository in HTML format. See [reference guide](Resources/docs/html/index.html).

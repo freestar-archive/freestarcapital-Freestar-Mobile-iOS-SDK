@@ -47,11 +47,6 @@ typedef struct GADAdSize GADAdSize;
 @property (nonatomic, copy, readonly, nonnull) NSString *fsIdentifier;
 
 /**
- * Refresh rate, defaults to app config setting
- */
-@property (nonatomic, assign) NSTimeInterval fsRefreshRate;
-
-/**
  * Delegate for Freestar registration
  */
 @property (nonatomic, weak) id<FSRegistrationDelegate> registrationDelegate;
@@ -73,6 +68,11 @@ typedef struct GADAdSize GADAdSize;
  * Ad size (width, height), readonly
  */
 @property(nonatomic, readonly, assign) CGSize fsAdSize;
+
+/**
+ * Refresh rate, defaults to app config setting
+ */
+@property (nonatomic, assign) NSTimeInterval fsRefreshRate;
 
 /**
  * This method allows the developer to pause autoRefresh of an ad.
