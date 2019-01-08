@@ -18,7 +18,10 @@
 @property (nonatomic, weak) id<FSRegistrationDelegate> registrationDelegate;
 @property (nonatomic, assign, getter=isPaused, readonly) BOOL paused;
 
+/*! @abstract Use initWithEventHandler:size to init. */
 - (instancetype)initWithEventHandler:(void(^)(NSString *__nonnull methodName, NSDictionary<NSString*, id> *__nonnull params))eventHandler;
+
+- (instancetype)initWithEventHandler:(void(^)(NSString *__nonnull methodName, NSDictionary<NSString*, id> *__nonnull params))eventHandler size:(GADAdSize)adSize NS_DESIGNATED_INITIALIZER;
 
 - (void)pauseRefresh;
 - (void)resumeRefresh;

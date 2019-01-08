@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         PBLogManager.setPBLogLevel(PBLogLevel.off)
         FSLogManager.setFSLogLevel(FSLogLevel.off)
         
+        // enable analytics
+        PBAnalyticsManager.sharedInstance()?.enabled = true
+        
         /// location aware advertisement, optional
         setupLocationManager()
         /// additional targeting, optional
