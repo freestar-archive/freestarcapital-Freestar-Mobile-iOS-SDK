@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK !! Banner and interstitial ad 
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.3.1__ | _February 13th, 2019_ |  • Bundle id override, for testing only.
 | __0.3.0__ | _January 7th, 2019_ |  • Dynamic iTunes Id.<br> • Ad size lock down.<br> • BeachFront demand bidder.
 | __0.2.0__ | _November 20th, 2018_ |  • Analytics support.<br> • GMA SDK runtime updates.<br> • Pause and resume API for banner auto-refresh.<br> • Event name convenience constants. |
 | __0.1.1__ | _August 13th, 2018_ |  • Fix to registration fallback url. |

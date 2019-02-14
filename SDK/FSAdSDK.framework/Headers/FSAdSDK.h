@@ -36,5 +36,10 @@ FOUNDATION_EXPORT const unsigned char FSAdSDKVersionString[];
  */
 + (void)setAnalyticsEnabled:(BOOL)enabled;
 
+/**
+ * Setting related to overriding bundle identifier.  For test use only.
+ * @param bundleIdentifier identifier to use for bundle id.
+ */
++ (void)overrideBundleIdentifier:(NSString*)bundleIdentifier;
 
 @end
