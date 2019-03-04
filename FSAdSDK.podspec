@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Registration' do |registration|
     registration.source_files = 'SDK/FSAdSDK.framework/Headers/*.{h}'
-    registration.vendored_libraries = 'SDK/FSAdSDK.framework'
+    registration.vendored_frameworks = 'SDK/FSAdSDK.framework'
     registration.preserve_paths =  'SDK/FSAdSDK.framework/*'
   end
 
