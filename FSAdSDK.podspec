@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
   s.dependency	       'FSCache'
   #s.dependency	       'Protobuf'
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
+  s.static_framework = true
 
   s.subspec 'Core' do |core|
     core.dependency 'FSAdSDK/Registration'
