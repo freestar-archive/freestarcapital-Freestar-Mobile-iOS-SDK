@@ -64,3 +64,4 @@ iOSInjectionProject/
 Podfile.lock
 Examples/FreestarBannerApp/Pods
 Examples/FreestarInterstitialApp/Pods
+.FSAdSDK.podspec.swp
