@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git', :tag => s.version.to_s }
   s.default_subspec  = 'Core'
   s.dependency	       'FSCache'
-  s.dependency	       'Protobuf'
+  #s.dependency	       'Protobuf'
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
 
   s.subspec 'Core' do |core|
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Registration' do |registration|
     registration.source_files = 'SDK/FSAdSDK.framework/Headers/*.{h}'
-    registration.vendored_frameworks = 'SDK/FSAdSDK.framework'
+    registration.vendored_libraries = 'SDK/FSAdSDK.framework'
     registration.preserve_paths =  'SDK/FSAdSDK.framework/*'
   end
 
