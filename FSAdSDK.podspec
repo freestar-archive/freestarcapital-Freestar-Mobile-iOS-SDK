@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.dependency	       'FSCache'
   s.dependency	       'Protobuf'
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
-  s.static_framework = true
+  #s.static_framework = true
 
   s.subspec 'Core' do |core|
     core.dependency 'FSAdSDK/Registration'
@@ -22,8 +22,9 @@ Pod::Spec.new do |s|
 
   s.subspec 'Registration' do |registration|
     registration.source_files = 'SDK/FSAdSDK.framework/Headers/*.{h}'
-    registration.vendored_frameworks = 'SDK/FSAdSDK.framework'
+    registration.vendored_libraries = 'SDK/FSAdSDK.framework'
     registration.preserve_paths =  'SDK/FSAdSDK.framework/*'
+    registration.xcconfig = { "OTHER_LINK_FLAG" => '$(inherited) -ObjC'}
   end
 
   s.subspec 'Common' do |common|

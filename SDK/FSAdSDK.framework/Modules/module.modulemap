@@ -1,6 +1,6 @@
 framework module FSAdSDK {
-  umbrella header "FSAdSDK.h"
-
-  export *
-  module * { export * }
+    umbrella header "FSAdSDK.h"
+    
+    export *
+    module * { export * }
 }
