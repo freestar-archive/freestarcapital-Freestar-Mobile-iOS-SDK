@@ -22,7 +22,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Registration' do |registration|
     registration.source_files = 'SDK/FSAdSDK.framework/Headers/*.{h}'
-    registration.vendored_libraries = 'SDK/FSAdSDK.framework'
+    registration.vendored_libraries = 'SDK/FSAdSDK.framework/FSAdSDK'
+    registration.libraries = 'FSAdSDK'
     registration.preserve_paths =  'SDK/FSAdSDK.framework/*'
     registration.xcconfig = { "OTHER_LINK_FLAG" => '$(inherited) -ObjC'}
   end
