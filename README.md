@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK !! Banner and interstitial ad 
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.3.2__ | _May 14th, 2019_ |  • Prebid Mobile SDK is now an internal dependency, see updated Podfile.
 | __0.3.1__ | _February 13th, 2019_ |  • Bundle id override, for testing only.
 | __0.3.0__ | _January 7th, 2019_ |  • Dynamic iTunes Id.<br> • Ad size lock down.<br> • BeachFront demand bidder.
 | __0.2.0__ | _November 20th, 2018_ |  • Analytics support.<br> • GMA SDK runtime updates.<br> • Pause and resume API for banner auto-refresh.<br> • Event name convenience constants. |
@@ -46,8 +47,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target "YourAppTarget" do
-    pod 'FSAdSDK/Banner'  // Freestar Ad SDK
-    pod 'PrebidMobileFS'  // Prebid Mobile SDK
+    pod 'FSAdSDK/Banner'  // Freestar Ad SDK    
     pod 'Google-Mobile-Ads-SDK', '~> 7.24.1'  // Primary Ad SDK
 end
 ```
