@@ -50,7 +50,7 @@ use_frameworks!
 
 target "YourAppTarget" do
     pod 'FSAdSDK/Banner'  // Freestar Ad SDK    
-    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/maddapper/GMA-iOS-SDK.git', :tag => '~> 7.41.0'  // Primary Ad SDK
+    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/maddapper/GMA-iOS-SDK.git', :tag => '7.41.0'  // Primary Ad SDK
 end
 ```
 
