@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.default_subspec  = 'Core'
   s.dependency	       'FSCache'
   s.dependency	       'Protobuf'
-  s.dependency	       'PrebidMobileFS', '~> 0.5.10'
+  s.dependency	       'PrebidMobileFS', '0.5.10'
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
 
   s.subspec 'Core' do |core|
