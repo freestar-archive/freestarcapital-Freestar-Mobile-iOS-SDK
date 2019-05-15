@@ -1,22 +1,23 @@
 //
 //  FSDFPInterstitial.h
-//  FSInterstitial
+//  FSDFP
 //
-//  Created by Dean Chang on 7/16/18.
-//  Copyright © 2018 Freestar. All rights reserved.
+//  Created by Dean Chang on 5/6/19.
+//  Copyright © 2019 Freestar. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
-#import <GoogleMobileAds/DFPInterstitial.h>
+#import "DFPNInterstitial.h"
 
 @protocol FSRegistrationDelegate;
 
-@interface FSDFPInterstitial : DFPInterstitial <GADInterstitialDelegate>
+@interface FSDFPInterstitial : DFPNInterstitial <GADInterstitialDelegate>
 
-@property (nonatomic, copy) NSString *fsIdentifier;
-@property (nonatomic, weak) id<FSRegistrationDelegate> registrationDelegate;
+@property (nonatomic, copy, nullable) NSString *fsIdentifier;
+@property (nonatomic, weak, nullable) id<FSRegistrationDelegate> registrationDelegate;
 
-- (instancetype)initWithEventHandler:(void(^)(NSString *__nonnull methodName, NSDictionary<NSString*, id> *__nonnull params))eventHandler
-                            adUnitId:(NSString*)adUnitId;
+- (__nonnull instancetype)initWithEventHandler:(void(^__nullable)(NSString *__nonnull methodName, NSDictionary<NSString *, id> *__nullable params))eventHandler
+                                      adUnitId:(NSString *__nonnull)adUnitId;
 
 @end

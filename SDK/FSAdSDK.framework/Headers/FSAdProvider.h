@@ -21,13 +21,13 @@ typedef struct GADAdSize GADAdSize;
  * This method notifies the delegate when the registration was successful.
  * @param identifier A unique ad idenitifier.
  */
-- (void)didRegisterForIdentifier:(NSString*)identifier;
+- (void)didRegisterForIdentifier:(NSString *_Nonnull)identifier;
 
 /**
  * This method notifies the delegate when the registration has failed.
  * @param identifier A unique ad idenitifier.
  */
-- (void)didFailToRegisterForIdentifier:(NSString*)identifier;
+- (void)didFailToRegisterForIdentifier:(NSString *_Nonnull)identifier;
 
 @end
 
@@ -39,17 +39,17 @@ typedef struct GADAdSize GADAdSize;
 /**
  * The ad loader's ad unit ID
  */
-@property (nonatomic, copy, readonly, nonnull) NSString *adUnitId;
+@property (nonatomic, copy, readonly, nullable) NSString *adUnitId;
 
 /**
  * Freestar unique ad identifier, readonly
  */
-@property (nonatomic, copy, readonly, nonnull) NSString *fsIdentifier;
+@property (nonatomic, copy, readonly, nullable) NSString *fsIdentifier;
 
 /**
  * Delegate for Freestar registration
  */
-@property (nonatomic, weak) id<FSRegistrationDelegate> registrationDelegate;
+@property (nonatomic, weak, nullable) id<FSRegistrationDelegate> registrationDelegate;
 
 /**
  * This method allows the developer to load an ad request, applies to DFP only.
@@ -102,7 +102,7 @@ typedef struct GADAdSize GADAdSize;
  * @param rootViewController The root view controller is used to present ad click actions. If your application does not use view controllers, pass in nil and your views will be removed from the window to show the interstitial, and restored when done.
  * @note This has no effect unless isReady returns YES.
  */
-- (void)presentFromRootViewController:(UIViewController *)rootViewController;
+- (void)presentFromRootViewController:(UIViewController *_Nullable)rootViewController;
 
 @end
 
