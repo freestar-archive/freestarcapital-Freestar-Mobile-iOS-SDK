@@ -2,27 +2,29 @@
 # Freestar Mobile iOS SDK Integration Guide
 
 ### What's New
-We are pleased to announce the release of our SDK !! Banner and interstitial ad formats are currently supported, with more coming.  Be sure to check-in frequently for the latest releases and announcements.
+We are pleased to announce the release of our SDK! Banner and interstitial ad formats are currently supported, with more coming.  Be sure to check-in frequently for the latest releases and announcements.
 
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
-| __0.3.2__ | _May 14th, 2019_ |  • Prebid Mobile SDK is now an internal dependency, see updated Podfile.
-| __0.3.1__ | _February 13th, 2019_ |  • Bundle id override, for testing only.
-| __0.3.0__ | _January 7th, 2019_ |  • Dynamic iTunes Id.<br> • Ad size lock down.<br> • BeachFront demand bidder.
+| __0.4.0__ | _May 15th, 2019_ |  • Latest GMA SDK compatibility.<br> • Runtime adjustable refresh rates.<br> • Nullability updates.
+| __0.3.2__ | _May 14th, 2019_ |  • Prebid Mobile SDK is now an internal dependency, see updated Podfile. |
+| __0.3.1__ | _February 13th, 2019_ |  • Bundle id override, for testing only. |
+| __0.3.0__ | _January 7th, 2019_ |  • Dynamic iTunes Id.<br> • Ad size lock down.<br> |
 | __0.2.0__ | _November 20th, 2018_ |  • Analytics support.<br> • GMA SDK runtime updates.<br> • Pause and resume API for banner auto-refresh.<br> • Event name convenience constants. |
 | __0.1.1__ | _August 13th, 2018_ |  • Fix to registration fallback url. |
 | __0.1.0__ | _August 6th, 2018_ |  • Interstitial support.<br> • Registration status delegate.<br> • Removed unnecessary dependency to core framework. |
 | __0.0.1__ | _June 21st, 2018_ |  • Initial release. |
 
-###### API Changes
-[ __0.2.0__ ]<br>
-• [Pause and resume](#banner-auto-refresh-pause-and-resume) for banner auto-refresh.<br>
-• [Banner convenience constants](#banner-ad-events-matrix) to detect event handler callback parameter.<br>
-• [Interstitial convenience constants](#interstitial-ad-events-matrix) to detect interstitial event handler callback parameter.<br>
-<br>
-[ __0.1.0__ ]<br>
-• Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format.
+###### Major API Changes
+| Latest |
+| ---- |
+| [ __0.4.0__ ] <br>• Nullability API updates.<br>• [Podfile](#using-cocoapods) updates.<br> |
+
+| Previous |
+| ---- |
+| [ __0.2.0__ ]<br>• [Pause and resume](#banner-auto-refresh-pause-and-resume) for banner auto-refresh.<br>• [Banner convenience constants](#banner-ad-events-matrix) to detect event handler callback parameter.<br>• [Interstitial convenience constants](#interstitial-ad-events-matrix) to detect interstitial event handler callback parameter.<br>
+| [ __0.1.0__ ]<br>• Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format. |
 
 ---
 #### Minimum Requirements
@@ -36,8 +38,8 @@ We are pleased to announce the release of our SDK !! Banner and interstitial ad 
 ---
 Here are the basic steps required to download and link the SDK to your project.  Although there are many approaches to this, we highly recommend you to use the [Cocoapods](https://cocoapods.org/) method.
 
-###### Using Cocoapods (recommended)
-The Freestar Ad SDK is available through [Cocoapods](https://cocoapods.org/), which is the de facto dependency manager for Objective-C projects. Here are the steps required to download and incorporate the SDK into your project.  
+###### Using Cocoapods
+The Freestar Ad SDK is available through [Cocoapods](https://cocoapods.org/), which is the de facto dependency manager for iOS projects. Here are the steps required to download and incorporate the SDK into your project. It is highly recommended to use Cocoapods, as that is the fastest way to get up and running with our SDK.
 
 `1.` Update your _Podfile_, here is an example:  
 
@@ -48,7 +50,7 @@ use_frameworks!
 
 target "YourAppTarget" do
     pod 'FSAdSDK/Banner'  // Freestar Ad SDK    
-    pod 'Google-Mobile-Ads-SDK', '~> 7.24.1'  // Primary Ad SDK
+    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/maddapper/GMA-iOS-SDK.git', '~> 7.41.0'  // Primary Ad SDK
 end
 ```
 
