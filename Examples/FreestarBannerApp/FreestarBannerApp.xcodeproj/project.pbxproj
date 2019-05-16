@@ -184,11 +184,12 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks.sh",
 				"${PODS_ROOT}/FSAdSDK/SDK/FSCommon.framework",
 				"${PODS_ROOT}/FSAdSDK/SDK/FSDFP.framework",
 				"${PODS_ROOT}/FSAdSDK/SDK/FSAdSDK.framework",
 				"${PODS_ROOT}/FSCache/build/FSCache.framework",
+				"${PODS_ROOT}/Google-Mobile-Ads-SDK/GoogleMobileAds.framework",
 				"${BUILT_PRODUCTS_DIR}/PrebidMobileFS/PrebidMobileFS.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 			);
@@ -198,12 +199,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSDFP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSAdSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleMobileAds.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PrebidMobileFS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -370,7 +372,10 @@
 				);
 				INFOPLIST_FILE = FreestarBannerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.freestar.mobile.Freestar-News";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -387,7 +392,10 @@
 				DEVELOPMENT_TEAM = FLA943DDZ8;
 				INFOPLIST_FILE = FreestarBannerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.freestar.mobile.Freestar-News";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
