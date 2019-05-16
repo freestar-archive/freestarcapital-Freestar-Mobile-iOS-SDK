@@ -4,5 +4,5 @@ use_frameworks!
 
 target "FreestarBannerApp" do
     pod 'FSAdSDK/Banner'
-    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/maddapper/GMA-iOS-SDK.git', :tag => '7.41.0'
+    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0'
 end

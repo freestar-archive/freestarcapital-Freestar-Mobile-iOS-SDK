@@ -7,7 +7,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
-| __0.4.0__ | _May 15th, 2019_ |  • Latest GMA SDK compatibility.<br> • Runtime adjustable refresh rates.<br> • Nullability updates.
+| __0.4.0__ | _May 16th, 2019_ |  • [GMA SDK compatibility](#gma-sdk-compatibility-matrix).<br> • Runtime adjustable refresh rates.<br> • Nullability updates.
 | __0.3.2__ | _May 14th, 2019_ |  • Prebid Mobile SDK is now an internal dependency, see updated Podfile. |
 | __0.3.1__ | _February 13th, 2019_ |  • Bundle id override, for testing only. |
 | __0.3.0__ | _January 7th, 2019_ |  • Dynamic iTunes Id.<br> • Ad size lock down.<br> |
@@ -25,6 +25,14 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 | ---- |
 | [ __0.2.0__ ]<br>• [Pause and resume](#banner-auto-refresh-pause-and-resume) for banner auto-refresh.<br>• [Banner convenience constants](#banner-ad-events-matrix) to detect event handler callback parameter.<br>• [Interstitial convenience constants](#interstitial-ad-events-matrix) to detect interstitial event handler callback parameter.<br>
 | [ __0.1.0__ ]<br>• Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format. |
+
+###### GMA SDK Compatibility Matrix
+Starting with SDK version 0.4.0, it is required to define a git / tag attribute in your Podfile to pull in the correct GMA SDK dependency.  We will be using the minor version number to indicate compatibility with the GMA SDK version in the matrix.  So for example, if the SDK version is 0.4.0, this would indicate that any version 0.4.x is compatible with GMA SDK 7.41.0.  Moving forward, we will be pushing compatibility releases more frequently to incorporate the latest updates.  Although these are just header files, please be sure to check this matrix to ensure you have the correct version of GMA SDK before running pod update.
+
+| FSAdSDK Version | GMA SDK Version | Podfile |
+| ---- | ----- | ------------ |
+| ~> 0.4 | 7.41.0 | pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0' |
+| <= 0.3.2 | 7.24.1 | pod 'Google-Mobile-Ads-SDK', '~> 7.24.1' |
 
 ---
 #### Minimum Requirements
@@ -49,8 +57,8 @@ platform :ios, '8.0'
 use_frameworks!
 
 target "YourAppTarget" do
-    pod 'FSAdSDK/Banner'  // Freestar Ad SDK    
-    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/maddapper/GMA-iOS-SDK.git', :tag => '7.41.0'  // Primary Ad SDK
+    pod 'FSAdSDK/Banner'  // Freestar Ad SDK
+    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0'  // Primary Ad SDK
 end
 ```
 
