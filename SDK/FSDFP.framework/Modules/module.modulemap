@@ -4,3 +4,8 @@ framework module FSDFP {
   export *
   module * { export * }
 }
+
+module FSDFP.Swift {
+    header "FSDFP-Swift.h"
+    requires objc
+}

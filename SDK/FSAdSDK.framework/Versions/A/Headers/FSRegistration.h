@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, FSRegistrationStatus) {
 
 @class PBAdUnit;
 
-extern NSString *const FSRegistrationStatusNotification;
+extern NSString *__nonnull const FSRegistrationStatusNotification;
 
 /**
  * Registers application with Freestar.  It is required to register to enable access to all ad inventory.
@@ -44,7 +44,7 @@ extern NSString *const FSRegistrationStatusNotification;
  * This method allows the developer to register the ad units created for Prebid Mobile.
  * @param completion completion block that returns success boolean and AdUnits
  */
-+ (void)registerWithCompletion:(nullable void(^)(FSRegistrationStatus, NSArray<PBAdUnit *> *))completion;
++ (void)registerWithCompletion:(nullable void(^)(FSRegistrationStatus, NSArray<PBAdUnit *> *_Nullable))completion;
 
 /**
  * This method allows the developer to register the ad units created for Prebid Mobile.
