@@ -14,12 +14,12 @@
 
 // DFP banner
 typedef NSString *DFPEventNameBanner NS_STRING_ENUM;
-static DFPEventNameBanner const DFPEventNameBannerAdViewDidReceiveAd = @"adViewDidReceiveAd:";
-static DFPEventNameBanner const DFPEventNameBannerAdViewDidFailToReceiveAd = @"adView:didFailToReceiveAdWithError:";
-static DFPEventNameBanner const DFPEventNameBannerAdViewWillPresentFullScreen = @"adViewWillPresentScreen:";
-static DFPEventNameBanner const DFPEventNameBannerAdViewWillDismissScreen = @"adViewWillDismissScreen:";
-static DFPEventNameBanner const DFPEventNameBannerAdViewDidDismissScreen = @"adViewDidDismissScreen:";
-static DFPEventNameBanner const DFPEventNameBannerAdViewWillLeaveApplication = @"adViewWillLeaveApplication:";
+static DFPEventNameBanner const DFPEventNameBannerAdViewDidReceiveAd = @"adViewDidReceiveAd(_:)";
+static DFPEventNameBanner const DFPEventNameBannerAdViewDidFailToReceiveAd = @"adView(_:didFailToReceiveAdWithError:)";
+static DFPEventNameBanner const DFPEventNameBannerAdViewWillPresentFullScreen = @"adViewWillPresentScreen(_:)";
+static DFPEventNameBanner const DFPEventNameBannerAdViewWillDismissScreen = @"adViewWillDismissScreen(_:)";
+static DFPEventNameBanner const DFPEventNameBannerAdViewDidDismissScreen = @"adViewDidDismissScreen(_:)";
+static DFPEventNameBanner const DFPEventNameBannerAdViewWillLeaveApplication = @"adViewWillLeaveApplication(_:)";
 
 // DFP interstitial
 typedef NSString *const DFPEventNameInterstitial NS_STRING_ENUM;
@@ -30,5 +30,14 @@ static DFPEventNameInterstitial const DFPEventNameInterstitialDidFailToPresentSc
 static DFPEventNameInterstitial const DFPEventNameInterstitialWillDismissScreen = @"interstitialWillDismissScreen:";
 static DFPEventNameInterstitial const DFPEventNameInterstitialDidDismissScreen = @"interstitialDidDismissScreen:";
 static DFPEventNameInterstitial const DFPEventNameInterstitialWillLeaveApplication = @"interstitialWillLeaveApplication:";
+
+// future for swift migration
+//static DFPEventNameInterstitial const DFPEventNameInterstitialDidReceiveAd = @"interstitialDidReceiveAd(_:)";
+//static DFPEventNameInterstitial const DFPEventNameInterstitialDidFailToReceiveAdWithError = @"interstitial(_:didFailToReceiveAdWithError:)";
+//static DFPEventNameInterstitial const DFPEventNameInterstitialWillPresentScreen = @"interstitialWillPresentScreen(_:)";
+//static DFPEventNameInterstitial const DFPEventNameInterstitialDidFailToPresentScreen = @"interstitialDidFail(toPresentScreen:)";
+//static DFPEventNameInterstitial const DFPEventNameInterstitialWillDismissScreen = @"interstitialWillDismissScreen(_:)";
+//static DFPEventNameInterstitial const DFPEventNameInterstitialDidDismissScreen = @"interstitialDidDismissScreen(_:)";
+//static DFPEventNameInterstitial const DFPEventNameInterstitialWillLeaveApplication = @"interstitialWillLeaveApplication(_:)";
 
 #endif /* FSAdSDKConstants_h */
