@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.4.2__ | _May 21th, 2019_ |  • Fixed ad event function name constants.
 | __0.4.1__ | _May 20th, 2019_ |  • Fixed fill rate issue for banner ads.
 | __0.4.0__ | _May 16th, 2019_ |  • [GMA SDK compatibility](#gma-sdk-compatibility-matrix).<br> • Runtime adjustable refresh rates.<br> • Nullability updates.
 | __0.3.2__ | _May 14th, 2019_ |  • Prebid Mobile SDK is now an internal dependency, see updated Podfile. |
