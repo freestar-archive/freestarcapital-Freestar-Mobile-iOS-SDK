@@ -229,8 +229,36 @@ SWIFT_PROTOCOL_NAMED("FSBanner")
 @class GADBannerView;
 @class GADRequestError;
 
-SWIFT_CLASS_NAMED("FSDFPBannerView")
-@interface FSDFPBannerView : DFPNOctagonBannerView <GADBannerViewDelegate>
+SWIFT_CLASS_NAMED("FSDFPBannerViewVariantN")
+@interface FSDFPBannerViewVariantN : DFPNOctagonBannerView <GADBannerViewDelegate>
+@property (nonatomic, readonly, copy) NSString * _Nullable fsIdentifier;
+@property (nonatomic) BOOL paused;
+@property (nonatomic, weak) id <FSRegistrationDelegate> _Nullable registrationDelegate;
+@property (nonatomic) BOOL isRegistered;
+@property (nonatomic, readonly) CGSize fsAdSize;
+@property (nonatomic, readonly, copy) NSString * _Nullable adUnitId;
+@property (nonatomic) NSTimeInterval fsRefreshRate;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithEventHandler:(void (^ _Nullable)(NSString * _Nonnull, NSDictionary<NSString *, id> * _Nonnull))eventHandler size:(GADAdSize)size;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithAdSize:(GADAdSize)adSize origin:(CGPoint)origin OBJC_DESIGNATED_INITIALIZER;
+- (void)loadRequest:(GADRequest * _Nullable)request;
+@property (nonatomic) GADAdSize adSize;
+- (void)setFsRefreshRate:(NSTimeInterval)refreshRate sender:(id _Nullable)sender;
+- (void)pauseRefresh;
+- (void)resumeRefresh;
+- (void)adViewDidReceiveAd:(GADBannerView * _Nonnull)bannerView;
+- (void)adView:(GADBannerView * _Nonnull)bannerView didFailToReceiveAdWithError:(GADRequestError * _Nonnull)error;
+- (void)adViewWillPresentScreen:(GADBannerView * _Nonnull)bannerView;
+- (void)adViewWillDismissScreen:(GADBannerView * _Nonnull)bannerView;
+- (void)adViewDidDismissScreen:(GADBannerView * _Nonnull)bannerView;
+- (void)adViewWillLeaveApplication:(GADBannerView * _Nonnull)bannerView;
+- (nonnull instancetype)initWithAdSize:(GADAdSize)adSize SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("FSDFPBannerViewVariantO")
+@interface FSDFPBannerViewVariantO : DFPOBannerView <GADBannerViewDelegate>
 @property (nonatomic, readonly, copy) NSString * _Nullable fsIdentifier;
 @property (nonatomic) BOOL paused;
 @property (nonatomic, weak) id <FSRegistrationDelegate> _Nullable registrationDelegate;
@@ -280,6 +308,8 @@ SWIFT_PROTOCOL_NAMED("FSRegistrationDelegate")
 /// @param identifier A unique ad idenitifier.
 - (void)didFailToRegisterForIdentifier:(NSString * _Nonnull)identifier;
 @end
+
+
 
 
 
@@ -527,8 +557,36 @@ SWIFT_PROTOCOL_NAMED("FSBanner")
 @class GADBannerView;
 @class GADRequestError;
 
-SWIFT_CLASS_NAMED("FSDFPBannerView")
-@interface FSDFPBannerView : DFPNOctagonBannerView <GADBannerViewDelegate>
+SWIFT_CLASS_NAMED("FSDFPBannerViewVariantN")
+@interface FSDFPBannerViewVariantN : DFPNOctagonBannerView <GADBannerViewDelegate>
+@property (nonatomic, readonly, copy) NSString * _Nullable fsIdentifier;
+@property (nonatomic) BOOL paused;
+@property (nonatomic, weak) id <FSRegistrationDelegate> _Nullable registrationDelegate;
+@property (nonatomic) BOOL isRegistered;
+@property (nonatomic, readonly) CGSize fsAdSize;
+@property (nonatomic, readonly, copy) NSString * _Nullable adUnitId;
+@property (nonatomic) NSTimeInterval fsRefreshRate;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithEventHandler:(void (^ _Nullable)(NSString * _Nonnull, NSDictionary<NSString *, id> * _Nonnull))eventHandler size:(GADAdSize)size;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithAdSize:(GADAdSize)adSize origin:(CGPoint)origin OBJC_DESIGNATED_INITIALIZER;
+- (void)loadRequest:(GADRequest * _Nullable)request;
+@property (nonatomic) GADAdSize adSize;
+- (void)setFsRefreshRate:(NSTimeInterval)refreshRate sender:(id _Nullable)sender;
+- (void)pauseRefresh;
+- (void)resumeRefresh;
+- (void)adViewDidReceiveAd:(GADBannerView * _Nonnull)bannerView;
+- (void)adView:(GADBannerView * _Nonnull)bannerView didFailToReceiveAdWithError:(GADRequestError * _Nonnull)error;
+- (void)adViewWillPresentScreen:(GADBannerView * _Nonnull)bannerView;
+- (void)adViewWillDismissScreen:(GADBannerView * _Nonnull)bannerView;
+- (void)adViewDidDismissScreen:(GADBannerView * _Nonnull)bannerView;
+- (void)adViewWillLeaveApplication:(GADBannerView * _Nonnull)bannerView;
+- (nonnull instancetype)initWithAdSize:(GADAdSize)adSize SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS_NAMED("FSDFPBannerViewVariantO")
+@interface FSDFPBannerViewVariantO : DFPOBannerView <GADBannerViewDelegate>
 @property (nonatomic, readonly, copy) NSString * _Nullable fsIdentifier;
 @property (nonatomic) BOOL paused;
 @property (nonatomic, weak) id <FSRegistrationDelegate> _Nullable registrationDelegate;
@@ -578,6 +636,8 @@ SWIFT_PROTOCOL_NAMED("FSRegistrationDelegate")
 /// @param identifier A unique ad idenitifier.
 - (void)didFailToRegisterForIdentifier:(NSString * _Nonnull)identifier;
 @end
+
+
 
 
 
