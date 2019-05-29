@@ -79,11 +79,11 @@ class ViewController: UIViewController, FSRegistrationDelegate {
     }
     
     // MARK: FSRegistrationDelegate
-    func didRegister(forIdentifier identifier: String!) {
+    func didRegister(forIdentifier identifier: String) {
         print("registration success.")
     }
     
-    func didFailToRegister(forIdentifier identifier: String!) {
+    func didFailToRegister(forIdentifier identifier: String) {
         print("registration failure.")
     }
 }

@@ -36,7 +36,6 @@ class ViewController: UIViewController, FSRegistrationDelegate {
         bannerView = FSAdProvider.createBanner(withIdentifier: adIdentifier,
                                                size: kGADAdSizeMediumRectangle,
                                                adUnitId: adUnitID,
-                                               rootViewController: self,
                                                registrationDelegate: self,
                                                eventHandler: { [weak self]
                                                     (methodName: String!, params: [ String : Any]) in
@@ -44,6 +43,7 @@ class ViewController: UIViewController, FSRegistrationDelegate {
                                                         // implement your custom logic here
                                                     }
                                                 })
+        bannerView.rootViewController = self
         let request: DFPRequest? = DFPRequest()
         bannerView?.load(request)
         self.view.addSubview(self.bannerView!)
@@ -82,11 +82,11 @@ class ViewController: UIViewController, FSRegistrationDelegate {
     }
     
     // MARK: FSRegistrationDelegate
-    func didRegister(forIdentifier identifier: String!) {
+    func didRegister(forIdentifier identifier: String) {
         print("registration success.")
     }
     
-    func didFailToRegister(forIdentifier identifier: String!) {
+    func didFailToRegister(forIdentifier identifier: String) {
         print("registration failure.")
     }
 }

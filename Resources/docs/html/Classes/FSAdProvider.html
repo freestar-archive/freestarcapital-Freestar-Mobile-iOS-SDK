@@ -58,6 +58,8 @@
 	
 	<optgroup label="Class Methods">
 		
+		<option value="//api/name/createBannerWithIdentifier:size:adUnitId:registrationDelegate:eventHandler:">+ createBannerWithIdentifier:size:adUnitId:registrationDelegate:eventHandler:</option>
+		
 		<option value="//api/name/createBannerWithIdentifier:size:adUnitId:rootViewController:registrationDelegate:eventHandler:">+ createBannerWithIdentifier:size:adUnitId:rootViewController:registrationDelegate:eventHandler:</option>
 		
 		<option value="//api/name/createInterstitialWithIdentifier:adUnitId:registrationDelegate:eventHandler:">+ createInterstitialWithIdentifier:adUnitId:registrationDelegate:eventHandler:</option>
@@ -114,6 +116,93 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/createBannerWithIdentifier:size:adUnitId:registrationDelegate:eventHandler:" title="createBannerWithIdentifier:size:adUnitId:registrationDelegate:eventHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createBannerWithIdentifier:size:adUnitId:registrationDelegate:eventHandler:">+&nbsp;createBannerWithIdentifier:size:adUnitId:registrationDelegate:eventHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This method allows the developer to create an instance of a banner ad.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (nullable UIView&lt;FSBanner&gt; *)createBannerWithIdentifier:(nonnull NSString *)<em>identifier</em> size:(GADAdSize)<em>size</em> adUnitId:(nonnull NSString *)<em>adUnitId</em> registrationDelegate:(nullable id&lt;FSRegistrationDelegate&gt;)<em>registrationDelegate</em> eventHandler:(nullable void ( ^ ) ( NSString *__nonnull methodName , NSDictionary&lt;NSString*,id&gt; *__nonnull params ))<em>eventHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>identifier</code></th>
+						<td><p>String that represents the unique identifier of the instance.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>size</code></th>
+						<td><p>Struct that represents the size dimensions (height and width) of the instance.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>adUnitId</code></th>
+						<td><p>The ad loader&rsquo;s ad unit ID.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>registrationDelegate</code></th>
+						<td><p>Informs delegate of registration status.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>eventHandler</code></th>
+						<td><p>Callback that notifies the developer to certain ad events, such as adViewDidReceiveAd or didFailToReceiveAdWithError.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>banner object which is an instance of UIView and conforms to the <a href="../Protocols/FSBanner.html">FSBanner</a> protocol.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Protocols/FSBanner.html">FSBanner</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">FSAdProvider.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/createBannerWithIdentifier:size:adUnitId:rootViewController:registrationDelegate:eventHandler:" title="createBannerWithIdentifier:size:adUnitId:rootViewController:registrationDelegate:eventHandler:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/createBannerWithIdentifier:size:adUnitId:rootViewController:registrationDelegate:eventHandler:">+&nbsp;createBannerWithIdentifier:size:adUnitId:rootViewController:registrationDelegate:eventHandler:</a></code>
 </h3>
@@ -190,7 +279,8 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="../Protocols/FSBanner.html">FSBanner</a></p></code></li>
+					<li><code><p><a href="../Protocols/FSBanner.html">FSBanner</a>
+@deprecated</p></code></li>
 					
 				</ul>
 			</div>
@@ -302,7 +392,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Freestar. All rights reserved. Updated: 2019-05-14</p>
+						<p class="copyright">Copyright &copy; 2019 Freestar. All rights reserved. Updated: 2019-05-29</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
