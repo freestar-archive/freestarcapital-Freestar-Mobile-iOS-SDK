@@ -115,7 +115,7 @@ class ViewController: UIViewController {
                                                adUnitId: adUnitID,                                  registrationDelegate: self,
                                                eventHandler:nil)
 
-        bannerView.rootViewController = self
+        bannerView?.rootViewController = self
         let request: DFPRequest? = DFPRequest()
         bannerView?.load(request)
         addToView(bannerView) // for layout, see banner sample
