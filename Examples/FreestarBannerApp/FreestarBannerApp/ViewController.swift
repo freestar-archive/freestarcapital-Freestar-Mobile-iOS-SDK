@@ -43,7 +43,7 @@ class ViewController: UIViewController, FSRegistrationDelegate {
                                                         // implement your custom logic here
                                                     }
                                                 })
-        bannerView.rootViewController = self
+        bannerView?.rootViewController = self
         let request: DFPRequest? = DFPRequest()
         bannerView?.load(request)
         self.view.addSubview(self.bannerView!)
