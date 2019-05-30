@@ -112,7 +112,8 @@ class ViewController: UIViewController {
 
         bannerView = FSAdProvider.createBanner(withIdentifier: adIdentifier,
                                                size: kGADAdSizeBanner,       
-                                               adUnitId: adUnitID,                                  registrationDelegate: self,
+                                               adUnitId: adUnitID,
+                                               registrationDelegate: self,
                                                eventHandler:nil)
 
         bannerView?.rootViewController = self
