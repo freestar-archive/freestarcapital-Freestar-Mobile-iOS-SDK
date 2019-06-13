@@ -7,6 +7,8 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.4.4__ | _June 12th, 2019_ |  • Registration retry policy.
+| __0.4.3__ | _May 29th, 2019_ |  • Public setter for root view controller on banner view.
 | __0.4.2__ | _May 21th, 2019_ |  • Fixed ad event function name constants.
 | __0.4.1__ | _May 20th, 2019_ |  • Fixed fill rate issue for banner ads.
 | __0.4.0__ | _May 16th, 2019_ |  • [GMA SDK compatibility](#gma-sdk-compatibility-matrix).<br> • Runtime adjustable refresh rates.<br> • Nullability updates.
@@ -21,10 +23,11 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Major API Changes
 | Latest |
 | ---- |
-| [ __0.4.0__ ] <br>• Nullability API updates.<br>• [Podfile](#using-cocoapods) updates.<br> |
+| [ __0.4.3__ ] <br>• Deprecated existing createBanner API.<br>|
 
 | Previous |
 | ---- |
+| [ __0.4.0__ ] <br>• Nullability API updates.<br>• [Podfile](#using-cocoapods) updates.<br> |
 | [ __0.2.0__ ]<br>• [Pause and resume](#banner-auto-refresh-pause-and-resume) for banner auto-refresh.<br>• [Banner convenience constants](#banner-ad-events-matrix) to detect event handler callback parameter.<br>• [Interstitial convenience constants](#interstitial-ad-events-matrix) to detect interstitial event handler callback parameter.<br>
 | [ __0.1.0__ ]<br>• Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format. |
 
@@ -109,12 +112,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         bannerView = FSAdProvider.createBanner(withIdentifier: adIdentifier,
-                                               size: kGADAdSizeBanner,
-                                               adUnitId: adUnitID,                                               
-                                               rootViewController: self,
+                                               size: kGADAdSizeBanner,       
+                                               adUnitId: adUnitID,
                                                registrationDelegate: self,
                                                eventHandler:nil)
 
+        bannerView?.rootViewController = self
         let request: DFPRequest? = DFPRequest()
         bannerView?.load(request)
         addToView(bannerView) // for layout, see banner sample
@@ -127,11 +130,11 @@ class ViewController: UIViewController {
 ```swift
 class ViewController: UIViewController, FSRegistrationDelegate {
   ...
-  func didRegister(forIdentifier identifier: String!) {
+  func didRegister(forIdentifier identifier: String) {
     print("didRegister: \(identifier)")
   }
 
-  func didFailToRegister(forIdentifier identifier: String!) {
+  func didFailToRegister(forIdentifier identifier: String) {
     print("didFailToRegister: \(identifier)")
   }
 }
@@ -216,11 +219,11 @@ class ViewController: UIViewController {
 ```swift
 class ViewController: UIViewController, FSRegistrationDelegate {
 ...
-  func didRegister(forIdentifier identifier: String!) {
+  func didRegister(forIdentifier identifier: String) {
     print("didRegister: \(identifier)")
   }
 
-  func didFailToRegister(forIdentifier identifier: String!) {
+  func didFailToRegister(forIdentifier identifier: String) {
     print("didFailToRegister: \(identifier)")
   }
 }
