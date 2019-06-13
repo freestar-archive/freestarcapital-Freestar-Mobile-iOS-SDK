@@ -60,10 +60,4 @@ extern NSString *__nonnull const FSRegistrationStatusNotification;
  */
 + (BOOL)isRegistered;
 
-/**
- * This method allows the developer to turn on or off registration retry (5 max).
- * @param autoRetry Boolean flag that enables or disabled auto retry, defaults to true.
- */
-+ (void)setAutoRetry:(BOOL)autoRetry;
-
 @end
