@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.4.5__ | _June 24th, 2019_ |  • Queuing for analytics delivery (protobuf messages).
 | __0.4.4__ | _June 12th, 2019_ |  • Registration retry policy.
 | __0.4.3__ | _May 29th, 2019_ |  • Public setter for root view controller on banner view.
 | __0.4.2__ | _May 21th, 2019_ |  • Fixed ad event function name constants.
