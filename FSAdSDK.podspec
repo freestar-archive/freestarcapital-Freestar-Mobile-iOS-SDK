@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'FSAdSDK'
-  s.version          = '0.4.6'
+  s.version          = '0.4.7'
   s.summary          = 'Freestar iOS Mobile Advertising SDK.'
   s.description      = "Freestar's SDK to easily display ads from over 30 demand sources. Visit freestar.io for more info."
   s.homepage         = 'https://freestar.io'
@@ -46,6 +46,15 @@ Pod::Spec.new do |s|
   s.subspec 'Interstitial' do |interstitial|
     interstitial.dependency 'FSAdSDK/Core'
     interstitial.dependency 'FSAdSDK/DFP'
+  end
+
+  s.subspec 'Mediation' do |mediation|
+    mediation.subspec 'MoPub' do |mopub|
+       mopub.source_files = 'SDK/MoPubAdapter.framework/Headers/*.{h}'
+       mopub.vendored_frameworks = 'SDK/MoPubAdapter.framework'
+       mopub.preserve_paths =  'SDK/MoPubAdapter.framework/*'
+       mopub.dependency 'mopub-ios-sdk/Core', '5.8.0'
+    end
   end
 
 end
