@@ -54,6 +54,7 @@ Pod::Spec.new do |s|
        mopub.vendored_frameworks = 'SDK/MoPubAdapter.framework'
        mopub.preserve_paths =  'SDK/MoPubAdapter.framework/*'
        mopub.dependency 'mopub-ios-sdk/Core', '5.8.0'
+       mopub.dependency 'Google-Mobile-Ads-SDK', '7.41.0'
     end
   end
 
