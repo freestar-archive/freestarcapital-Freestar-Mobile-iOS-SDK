@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.4.7__ | _September 10th, 2019_ |  • MoPub mediation support.
 | __0.4.6__ | _August 26th, 2019_ |  • Analytics remote switch.
 | __0.4.5__ | _June 24th, 2019_ |  • Queuing for analytics delivery (protobuf messages).
 | __0.4.4__ | _June 12th, 2019_ |  • Registration retry policy.
@@ -25,10 +26,11 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Major API Changes
 | Latest |
 | ---- |
-| [ __0.4.3__ ] <br>• Deprecated existing createBanner API.<br>|
+| [ __0.4.7__ ] <br>• [MoPub mediation](#mopub) support.<br>|
 
 | Previous |
 | ---- |
+| [ __0.4.3__ ] <br>• Deprecated existing createBanner API.<br>|
 | [ __0.4.0__ ] <br>• Nullability API updates.<br>• [Podfile](#using-cocoapods) updates.<br> |
 | [ __0.2.0__ ]<br>• [Pause and resume](#banner-auto-refresh-pause-and-resume) for banner auto-refresh.<br>• [Banner convenience constants](#banner-ad-events-matrix) to detect event handler callback parameter.<br>• [Interstitial convenience constants](#interstitial-ad-events-matrix) to detect interstitial event handler callback parameter.<br>
 | [ __0.1.0__ ]<br>• Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format. |
@@ -58,7 +60,7 @@ The Freestar Ad SDK is available through [Cocoapods](https://cocoapods.org/), wh
 
 `1.` Update your _Podfile_, here is an example:  
 
-```objective-c
+```swift
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
@@ -404,13 +406,41 @@ user = {
 ## Analytics
 Prebid analytics is disabled by default.  However, if granular reporting is required, please enable analytics using _PBAnalyticsManager_ in your AppDelegate.  Here is an example showing how to enable analytics:
 ```swift
-import PrebidMobileFS
+import FSAdSDK
 
 ...
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-  PBAnalyticsManager.sharedInstance()?.enabled = true  
+  FSAdSDK.setAnalyticsEnabled(true)  
 }
+```
+
+## Mediation
+To enable support for 3rd party ad networks, follow the Cocoapods integration guideline(s) below.  Each mediation partner will require an entry to be added to your Podfile.  The mediation adapter module(s) below have been compatibility tested with our SDK.  No additional code integration is required.  
+
+_Note: Alternatively, custom mediation adapters can be added to your project but caution will need to be exercised to ensure proper impression tracking and ad slot sizing._
+
+#### MoPub
+To enable MoPub demand (via mediation) in your project, add this entry to your Podfile:
+
+```swift
+target "YourAppTarget" do
+  pod 'FSAdSDK/Mediation/MoPub'
+  ...
+end
+```
+
+Full Podfile example with MoPub:
+```swift
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target "YourAppTarget" do
+    pod 'FSAdSDK/Mediation/MoPub'  // add this entry to include MoPub demand
+    pod 'FSAdSDK/Banner'  // Freestar Ad SDK
+    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0'  // Primary Ad SDK
+end
 ```
 
 
