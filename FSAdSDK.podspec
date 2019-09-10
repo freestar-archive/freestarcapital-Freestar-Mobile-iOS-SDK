@@ -50,7 +50,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Mediation' do |mediation|
     mediation.subspec 'MoPub' do |mopub|
-       mopub.source_files = 'SDK/MoPubAdapter.framework/Headers/*.{h}'
+       mopub.source_files = 'SDK/MoPubAdapter.framework/Versions/A/Headers/*.{h}'
        mopub.vendored_frameworks = 'SDK/MoPubAdapter.framework'
        mopub.preserve_paths =  'SDK/MoPubAdapter.framework/*'
        mopub.dependency 'mopub-ios-sdk/Core', '5.8.0'
