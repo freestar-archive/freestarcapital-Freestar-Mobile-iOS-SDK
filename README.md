@@ -27,7 +27,14 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Major API Changes
 | Latest |
 | ---- |
-| [ __0.5.0__ ] <br>• Swift 5.1 / Xcode 11 update(s).<br>|
+| [ __0.5.0__ ] <br>• Xcode 11+ upgrade required.<br> • Update your _Info.plist_ to enable [GADIsAdManagerApp](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start#update_your_infoplist) key.
+
+_Warning: This step is required as of Google Mobile Ads SDK version 7.42.0. Failure to add add this Info.plist entry results in a crash with the message: "The Google Mobile Ads SDK was initialized incorrectly."_<br>
+Info.plist:
+```swift
+<key>GADIsAdManagerApp</key>
+<true/>
+```
 
 | Previous |
 | ---- |
