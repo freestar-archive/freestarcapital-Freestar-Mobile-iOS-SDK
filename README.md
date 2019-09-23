@@ -77,7 +77,7 @@ use_frameworks!
 
 target "YourAppTarget" do
     pod 'FSAdSDK/Banner'  // Freestar Ad SDK
-    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0'  // Primary Ad SDK
+    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.50.0'  // Primary Ad SDK
 end
 ```
 
@@ -449,7 +449,7 @@ use_frameworks!
 target "YourAppTarget" do
     pod 'FSAdSDK/Mediation/MoPub'  // add this entry to include MoPub demand
     pod 'FSAdSDK/Banner'  // Freestar Ad SDK
-    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0'  // Primary Ad SDK
+    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.50.0'  // Primary Ad SDK
 end
 ```
 
