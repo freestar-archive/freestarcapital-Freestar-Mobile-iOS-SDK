@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'FSAdSDK'
-  s.version          = '0.4.7'
+  s.version          = '0.5.1'
   s.summary          = 'Freestar iOS Mobile Advertising SDK.'
   s.description      = "Freestar's SDK to easily display ads from over 30 demand sources. Visit freestar.io for more info."
   s.homepage         = 'https://freestar.io'
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git', :tag => s.version.to_s }
   s.default_subspec  = 'Core'
   s.dependency	       'FSCache'
-  s.dependency	       'Protobuf'
+  s.dependency	       'Protobuf', '~> 3.6.1'
   s.dependency	       'PrebidMobileFS', '~> 0.6.1'
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
 
@@ -54,7 +54,7 @@ Pod::Spec.new do |s|
        mopub.vendored_frameworks = 'SDK/MoPubAdapter.framework'
        mopub.preserve_paths =  'SDK/MoPubAdapter.framework/*'
        mopub.dependency 'mopub-ios-sdk/Core', '5.8.0'
-       mopub.dependency 'Google-Mobile-Ads-SDK', '7.41.0'
+       mopub.dependency 'Google-Mobile-Ads-SDK', '7.50.0'
     end
   end
 

@@ -183,25 +183,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks.sh",
-				"${PODS_ROOT}/FSAdSDK/SDK/FSCommon.framework",
-				"${PODS_ROOT}/FSAdSDK/SDK/FSDFP.framework",
-				"${PODS_ROOT}/FSAdSDK/SDK/FSAdSDK.framework",
-				"${PODS_ROOT}/FSCache/build/FSCache.framework",
-				"${PODS_ROOT}/Google-Mobile-Ads-SDK/GoogleMobileAds.framework",
-				"${BUILT_PRODUCTS_DIR}/PrebidMobileFS/PrebidMobileFS.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCommon.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSDFP.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSAdSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleMobileAds.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PrebidMobileFS.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreestarBannerApp/Pods-FreestarBannerApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
