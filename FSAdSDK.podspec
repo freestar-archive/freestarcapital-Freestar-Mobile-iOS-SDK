@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git', :tag => s.version.to_s }
   s.default_subspec  = 'Core'
   s.dependency	       'FSCache'
-  s.dependency	       'Protobuf'
+  s.dependency	       'Protobuf', '~> 3.6.1'  
   s.dependency	       'PrebidMobileFS', '~> 0.6.1'
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
 
