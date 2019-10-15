@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.5.2__ | _October 15th, 2019_ |  • Null check for ad refresh rate.
 | __0.5.0__ | _September 23th, 2019_ |  • Swift 5.1 module stability.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).
 | __0.4.7__ | _September 10th, 2019_ |  • MoPub mediation support.
 | __0.4.6__ | _August 26th, 2019_ |  • Analytics remote switch.
