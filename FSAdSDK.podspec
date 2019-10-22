@@ -32,21 +32,21 @@ Pod::Spec.new do |s|
     common.preserve_paths =  'SDK/FSCommon.framework/*'
   end
 
-  s.subspec 'DFP' do |dfp|
-    dfp.public_header_files = 'SDK/FSDFP/*.{h}'
-    dfp.source_files = 'SDK/FSDFP/Source/*.{h,m,swift}'
-    dfp.preserve_paths =  'SDK/FSDFP/*'
-    dfp.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/"' }
-  end
+  # s.subspec 'DFP' do |dfp|
+  #   dfp.public_header_files = 'SDK/FSDFP/*.{h}'
+  #   dfp.source_files = 'SDK/FSDFP/Source/*.{h,m,swift}'
+  #   dfp.preserve_paths =  'SDK/FSDFP/Source/*'
+  #   dfp.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/"' }
+  # end
 
   s.subspec 'Banner' do |banner|
     banner.dependency 'FSAdSDK/Core'
-    banner.dependency 'FSAdSDK/DFP'
+    # banner.dependency 'FSAdSDK/DFP'
   end
 
   s.subspec 'Interstitial' do |interstitial|
     interstitial.dependency 'FSAdSDK/Core'
-    interstitial.dependency 'FSAdSDK/DFP'
+    # interstitial.dependency 'FSAdSDK/DFP'
   end
 
   s.subspec 'Mediation' do |mediation|
