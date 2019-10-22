@@ -10,7 +10,6 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '8.0'
   s.source           = { :git => 'https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git', :tag => s.version.to_s }
   s.default_subspec  = 'Core'
-  s.static_framework = true
   s.dependency	       'FSCache'
   s.dependency	       'Protobuf', '~> 3.10.0'
   s.dependency	       'PrebidMobileFS', '~> 0.6.1'
