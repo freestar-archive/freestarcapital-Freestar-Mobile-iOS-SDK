@@ -34,9 +34,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'DFP' do |dfp|
     dfp.public_header_files = 'SDK/FSDFP/*.{h}'
-    dfp.source_files = 'SDK/FSDFP/Source/*.{h,m,swift}'
-    dfp.dependency 'Google-Mobile-Ads-SDK', '7.50.0'
-    dfp.static_framework = true
+    dfp.source_files = 'SDK/FSDFP/Source/*.{h,m,swift}'  
   end
 
   s.subspec 'Banner' do |banner|
