@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'FSAdSDK'
-  s.version          = '0.5.5'
+  s.version          = '0.6.0'
   s.summary          = 'Freestar iOS Mobile Advertising SDK.'
   s.description      = "Freestar's SDK to easily display ads from over 30 demand sources. Visit freestar.io for more info."
   s.homepage         = 'https://freestar.io'
@@ -31,13 +31,6 @@ Pod::Spec.new do |s|
     common.vendored_frameworks = 'SDK/FSCommon.framework'
     common.preserve_paths =  'SDK/FSCommon.framework/*'
   end
-
-  # s.subspec 'DFP' do |dfp|
-  #   dfp.public_header_files = 'SDK/FSDFP/*.{h}'
-  #   dfp.source_files = 'SDK/FSDFP/Source/*.{h,m,swift}'
-  #   dfp.preserve_paths =  'SDK/FSDFP/Source/*'
-  #   dfp.xcconfig     =  { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/"' }
-  # end
 
   s.subspec 'Banner' do |banner|
     banner.dependency 'FSAdSDK/Core'
