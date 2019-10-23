@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.6.0__ | _October 23th, 2019_ |  • Firebase analytics compatibility fix.<br> • Minimum iOS deployment target 9.0.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).
 | __0.5.2__ | _October 15th, 2019_ |  • Null check for ad refresh rate.
 | __0.5.0__ | _September 23th, 2019_ |  • Swift 5.1 module stability.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).
 | __0.4.7__ | _September 10th, 2019_ |  • MoPub mediation support.
@@ -28,7 +29,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Major API Changes
 | Latest |
 | ---- |
-| [ __0.5.0__ ] <br>• Xcode 11+ upgrade required.<br> • Update your _Info.plist_ to enable [GADIsAdManagerApp](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start#update_your_infoplist) key.
+| [ __0.6.0__ ] <br> • Usage of the forked GMA SDK is no longer needed, however version pinning is still required.  See [compatibility matrix](#gma-sdk-compatibility-matrix) below.
 
 _Warning: This step is required as of Google Mobile Ads SDK version 7.42.0. Failure to add add this Info.plist entry results in a crash with the message: "The Google Mobile Ads SDK was initialized incorrectly."_<br>
 Info.plist:
@@ -39,6 +40,7 @@ Info.plist:
 
 | Previous |
 | ---- |
+| [ __0.5.0__ ] <br>• Xcode 11+ upgrade required.<br> • Update your _Info.plist_ to enable [GADIsAdManagerApp](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start#update_your_infoplist) key.
 | [ __0.4.7__ ] <br>• [MoPub mediation](#mopub) support.<br>|
 | [ __0.4.3__ ] <br>• Deprecated existing createBanner API.<br>|
 | [ __0.4.0__ ] <br>• Nullability API updates.<br>• [Podfile](#using-cocoapods) updates.<br> |
@@ -46,13 +48,14 @@ Info.plist:
 | [ __0.1.0__ ]<br>• Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format. |
 
 ###### GMA SDK Compatibility Matrix
-Starting with SDK version 0.4.0, it is required to define a git / tag attribute in your Podfile to pull in the correct GMA SDK dependency.  We will be using the minor version number to indicate compatibility with the GMA SDK version in the matrix.  So for example, if the SDK version is 0.5.0, this would indicate that any version 0.5.x is compatible with GMA SDK 7.50.0.  Moving forward, we will be pushing compatibility releases more frequently to incorporate the latest updates.  Although these are just header files, please be sure to check this matrix to ensure you have the correct version of GMA SDK before running pod update.
+Starting with SDK version 0.6.0, it is no longer required to use the forked version of GMA SDK.  Please refer to below matrix to determine which version of GMA SDK is compatible to our Freestar SDK.  Whenever possible, it is always recommended to be on the latest version(s).
 
-| FSAdSDK Version | GMA SDK Version | Podfile |
-| ---- | ----- | ------------ |
-| ~> 0.5 | 7.50.0 | pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.50.0' |
-| ~> 0.4 | 7.41.0 | pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0' |
-| <= 0.3.2 | 7.24.1 | pod 'Google-Mobile-Ads-SDK', '~> 7.24.1' |
+| FSAdSDK Version | GMA SDK Version | unForked? | Podfile |
+| ---- | ----- | -- | ------------ |
+| ~> 0.6 | 7.50.0 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '7.50.0' |
+| ~> 0.5 | 7.50.0 | :x: | pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.50.0' |
+| ~> 0.4 | 7.41.0 | :x: | pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0' |
+| <= 0.3.2 | 7.24.1 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '~> 7.24.1' |
 
 ---
 #### Minimum Requirements
@@ -60,7 +63,7 @@ Starting with SDK version 0.4.0, it is required to define a git / tag attribute 
 + XCode 9
 + Cocoapods
 + Device
-  - iOS 8.0+
+  - iOS 9.0+
 
 ## Getting Started
 ---
@@ -73,12 +76,12 @@ The Freestar Ad SDK is available through [Cocoapods](https://cocoapods.org/), wh
 
 ```swift
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target "YourAppTarget" do
     pod 'FSAdSDK/Banner'  // Freestar Ad SDK
-    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.50.0'  // Primary Ad SDK
+    pod 'Google-Mobile-Ads-SDK', '7.50.0'  // Primary Ad SDK
 end
 ```
 
@@ -444,13 +447,13 @@ end
 Full Podfile example with MoPub:
 ```swift
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target "YourAppTarget" do
     pod 'FSAdSDK/Mediation/MoPub'  // add this entry to include MoPub demand
     pod 'FSAdSDK/Banner'  // Freestar Ad SDK
-    pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.50.0'  // Primary Ad SDK
+    pod 'Google-Mobile-Ads-SDK', '7.50.0'  // Primary Ad SDK
 end
 ```
 
