@@ -10,14 +10,15 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '8.0'
   s.source           = { :git => 'https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git', :tag => s.version.to_s }
   s.default_subspec  = 'Core'
-  s.dependency	       'FSCache'
-  s.dependency	       'FSCommon'
-  s.dependency	       'Protobuf', '~> 3.10.0'
-  s.dependency	       'PrebidMobileFS', '~> 0.6.1'
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
 
   s.subspec 'Core' do |core|
-    core.dependency 'FSAdSDK/Registration'
+    core.dependency   'FSAdSDK/Registration'
+    core.dependency	  'FSCache'
+    core.dependency	  'FSCommon'
+    core.dependency	  'FSDFP'
+    core.dependency	  'Protobuf', '~> 3.10.0'
+    core.dependency	  'PrebidMobileFS', '~> 0.6.1'
   end
 
   s.subspec 'Registration' do |registration|
@@ -31,7 +32,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Interstitial' do |interstitial|
-    interstitial.dependency 'FSAdSDK/Core'    
+    interstitial.dependency 'FSAdSDK/Core'
   end
 
   s.subspec 'Mediation' do |mediation|
