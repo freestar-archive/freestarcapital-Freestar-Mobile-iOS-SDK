@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://freestar.io'
   s.author           = { 'Freestar - Dean Chang' => 'dean.chang@freestar.io' }
   s.license          = { :type => 'Freestar Limited License' }
-  s.platform         = :ios, '8.0'
+  s.platform         = :ios, '9.0'
   s.source           = { :git => 'https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git', :tag => s.version.to_s }
   s.default_subspec  = 'Core'
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
