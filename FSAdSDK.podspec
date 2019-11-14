@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'FSAdSDK'
-  s.version          = '0.6.1'
+  s.version          = '0.6.2'
   s.summary          = 'Freestar iOS Mobile Advertising SDK.'
   s.description      = "Freestar's SDK to easily display ads from over 30 demand sources. Visit freestar.io for more info."
   s.homepage         = 'https://freestar.io'
@@ -43,6 +43,14 @@ Pod::Spec.new do |s|
        mopub.preserve_paths =  'SDK/MoPubAdapter.framework/*'
        mopub.dependency 'mopub-ios-sdk/Core', '5.8.0'
        mopub.dependency 'Google-Mobile-Ads-SDK', '7.50.0'
+    end
+
+    mediation.subspec 'Facebook' do |facebook|
+       facebook.source_files = 'SDK/FacebookAdapter.framework/Versions/A/Headers/*.{h}'
+       facebook.vendored_frameworks = 'SDK/FacebookAdapter.framework'
+       facebook.preserve_paths =  'SDK/FacebookAdapter.framework/*'
+       facebook.dependency 'FBAudienceNetwork', '5.6.0'
+       facebook.dependency 'Google-Mobile-Ads-SDK', '7.50.0'
     end
   end
 

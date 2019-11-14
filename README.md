@@ -7,10 +7,11 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.6.2__ | _November 15th, 2019_ |  • [Facebook Audience Network](#facebook-audience-network) mediation support.
 | __0.6.0__ | _October 23th, 2019_ |  • Firebase analytics compatibility fix.<br> • Minimum iOS deployment target 9.0.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).
 | __0.5.2__ | _October 15th, 2019_ |  • Null check for ad refresh rate.
 | __0.5.0__ | _September 23th, 2019_ |  • Swift 5.1 module stability.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).
-| __0.4.7__ | _September 10th, 2019_ |  • MoPub mediation support.
+| __0.4.7__ | _September 10th, 2019_ |  • [MoPub mediation](#mopub) support.
 | __0.4.6__ | _August 26th, 2019_ |  • Analytics remote switch.
 | __0.4.5__ | _June 24th, 2019_ |  • Queuing for analytics delivery (protobuf messages).
 | __0.4.4__ | _June 12th, 2019_ |  • Registration retry policy.
@@ -80,8 +81,8 @@ platform :ios, '9.0'
 use_frameworks!
 
 target "YourAppTarget" do
-    pod 'FSAdSDK/Banner'  // Freestar Ad SDK
-    pod 'Google-Mobile-Ads-SDK', '7.50.0'  // Primary Ad SDK
+    pod 'FSAdSDK/Banner'
+    pod 'Google-Mobile-Ads-SDK', '7.50.0'
 end
 ```
 
@@ -451,12 +452,34 @@ platform :ios, '9.0'
 use_frameworks!
 
 target "YourAppTarget" do
-    pod 'FSAdSDK/Mediation/MoPub'  // add this entry to include MoPub demand
-    pod 'FSAdSDK/Banner'  // Freestar Ad SDK
-    pod 'Google-Mobile-Ads-SDK', '7.50.0'  // Primary Ad SDK
+    pod 'FSAdSDK/Mediation/MoPub'
+    pod 'FSAdSDK/Banner'
+    pod 'Google-Mobile-Ads-SDK', '7.50.0'
 end
 ```
 
+#### Facebook Audience Network
+To enable Facebook Audience Network demand (via mediation) in your project, add this entry to your Podfile:
+
+```swift
+target "YourAppTarget" do
+  pod 'FSAdSDK/Mediation/Facebook'
+  ...
+end
+```
+
+Full Podfile example with MoPub:
+```swift
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
+
+target "YourAppTarget" do
+    pod 'FSAdSDK/Mediation/Facebook'
+    pod 'FSAdSDK/Banner'
+    pod 'Google-Mobile-Ads-SDK', '7.50.0'
+end
+```
 
 ## Reference Guide
 The API reference guide for the SDK is available in this repository in HTML format. See [reference guide](Resources/docs/html/index.html).
