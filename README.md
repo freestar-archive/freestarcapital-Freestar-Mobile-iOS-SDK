@@ -468,7 +468,7 @@ target "YourAppTarget" do
 end
 ```
 
-Full Podfile example with MoPub:
+Full Podfile example with Facebook:
 ```swift
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.0'
