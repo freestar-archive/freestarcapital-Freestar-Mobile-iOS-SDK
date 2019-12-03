@@ -15,5 +15,5 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import <FacebookAdapter/GADFBExtraAssets.h>
+//#import <FacebookAdapter/GADFBExtraAssets.h>
 #import <FacebookAdapter/GADFBNetworkExtras.h>
