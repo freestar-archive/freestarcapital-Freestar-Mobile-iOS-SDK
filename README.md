@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.6.3__ | _January 9th, 2020_ |  • Dashboard compatibility release.
 | __0.6.2__ | _November 15th, 2019_ |  • [Facebook Audience Network](#facebook-audience-network) mediation support.
 | __0.6.0__ | _October 23th, 2019_ |  • Firebase analytics compatibility fix.<br> • Minimum iOS deployment target 9.0.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).
 | __0.5.2__ | _October 15th, 2019_ |  • Null check for ad refresh rate.

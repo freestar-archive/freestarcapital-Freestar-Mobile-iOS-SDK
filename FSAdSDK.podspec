@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name             = 'FSAdSDK'
-  s.version          = '0.6.2'
+  s.version          = '0.6.3'
   s.summary          = 'Freestar iOS Mobile Advertising SDK.'
   s.description      = "Freestar's SDK to easily display ads from over 30 demand sources. Visit freestar.io for more info."
   s.homepage         = 'https://freestar.io'
