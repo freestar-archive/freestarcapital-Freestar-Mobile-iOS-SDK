@@ -38,20 +38,25 @@ Pod::Spec.new do |s|
 
   s.subspec 'Mediation' do |mediation|
     mediation.subspec 'MoPub' do |mopub|
-       mopub.source_files = 'SDK/MoPubAdapter.framework/Versions/A/Headers/*.{h}'
-       mopub.vendored_frameworks = 'SDK/MoPubAdapter.framework'
-       mopub.preserve_paths =  'SDK/MoPubAdapter.framework/*'
+      mopub.source = { 
+        :http => 'https://storage.googleapis.com/freestar-sdk/MoPub/MoPub.tar.gz'
+       }
+       mopub.vendored_frameworks = 'Library/MoPubAdapter.framework'
+       mopub.preserve_paths =  'Library/MoPubAdapter.framework/*'
        mopub.dependency 'mopub-ios-sdk/Core', '5.8.0'
        mopub.dependency 'Google-Mobile-Ads-SDK', '7.50.0'
     end
 
     mediation.subspec 'Facebook' do |facebook|
-       facebook.source_files = 'SDK/FacebookAdapter.framework/Versions/A/Headers/*.{h}'
-       facebook.vendored_frameworks = 'SDK/FacebookAdapter.framework'
-       facebook.preserve_paths =  'SDK/FacebookAdapter.framework/*'
+       facebook.source = { 
+        :http => 'https://storage.googleapis.com/freestar-sdk/Facebook/Facebook.tar.gz'
+       }
+       facebook.vendored_frameworks = 'Library/FacebookAdapter.framework'
+       facebook.preserve_paths =  'Library/FacebookAdapter.framework/*'
        facebook.dependency 'FBAudienceNetwork', '5.6.0'
        facebook.dependency 'Google-Mobile-Ads-SDK', '7.50.0'
     end
+
   end
 
 end
