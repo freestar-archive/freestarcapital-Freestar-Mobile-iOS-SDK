@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.6.4__ | _January 22nd, 2020_ |  • [GMA SDK 7.53.1 compatibility](#gma-sdk-compatibility-matrix).
 | __0.6.3__ | _January 9th, 2020_ |  • Dashboard compatibility release.
 | __0.6.2__ | _November 15th, 2019_ |  • [Facebook Audience Network](#facebook-audience-network) mediation support.
 | __0.6.0__ | _October 23th, 2019_ |  • Firebase analytics compatibility fix.<br> • Minimum iOS deployment target 9.0.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).
@@ -54,7 +55,8 @@ Starting with SDK version 0.6.0, it is no longer required to use the forked vers
 
 | FSAdSDK Version | GMA SDK Version | unForked? | Podfile |
 | ---- | ----- | -- | ------------ |
-| ~> 0.6 | 7.50.0 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '7.50.0' |
+| ~> 0.6.4 | 7.53.1 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '7.53.1' |
+| ~> 0.6.3 | 7.50.0 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '7.50.0' |
 | ~> 0.5 | 7.50.0 | :x: | pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.50.0' |
 | ~> 0.4 | 7.41.0 | :x: | pod 'Google-Mobile-Ads-SDK', :git => 'https://github.com/freestarcapital/GMA-iOS-SDK.git', :tag => '7.41.0' |
 | <= 0.3.2 | 7.24.1 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '~> 7.24.1' |
@@ -83,7 +85,7 @@ use_frameworks!
 
 target "YourAppTarget" do
     pod 'FSAdSDK/Banner'
-    pod 'Google-Mobile-Ads-SDK', '7.50.0'
+    pod 'Google-Mobile-Ads-SDK', '7.53.1'
 end
 ```
 
@@ -455,7 +457,7 @@ use_frameworks!
 target "YourAppTarget" do
     pod 'FSAdSDK/Mediation/MoPub'
     pod 'FSAdSDK/Banner'
-    pod 'Google-Mobile-Ads-SDK', '7.50.0'
+    pod 'Google-Mobile-Ads-SDK', '7.53.1'
 end
 ```
 
@@ -478,7 +480,7 @@ use_frameworks!
 target "YourAppTarget" do
     pod 'FSAdSDK/Mediation/Facebook'
     pod 'FSAdSDK/Banner'
-    pod 'Google-Mobile-Ads-SDK', '7.50.0'
+    pod 'Google-Mobile-Ads-SDK', '7.53.1'
 end
 ```
 
