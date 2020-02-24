@@ -499,7 +499,7 @@ Update your application Info.plist with the following:
 + Create a dictionary entry at root called *freestar*
 + Add a sub-entry under *freestar* called *failsafeModeEnabled* and set that to true (YES).
 ```
-Info.plist -> freestar -> failsafeModeEnabled (bool) = YES
+Info.plist -> freestar (dictionary) -> failsafeModeEnabled (bool) = YES
 ```
 
 ---
