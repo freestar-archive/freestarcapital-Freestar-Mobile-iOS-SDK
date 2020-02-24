@@ -489,6 +489,19 @@ end
 ## Reference Guide
 The API reference guide for the SDK is available in this repository in HTML format. See [reference guide](Resources/docs/html/index.html).
 
+## Diagnostics
+Special modes can be enabled to help with diagnosing issues related to SDK integration.  See below instructions.
+
+#### Fail Safe Visibility Mode
+For display ad formats, such as banner, it is expected that display ads will be shown after ad loading has completed.  But, if for any reason, an ad cannot be displayed as a result of a bug in the integration, the SDK will not throw any errors or exceptions indicating an impression was lost.  Under these circumstances, it might be useful to have the SDK throw an exception to halt execution of the app to make the app developer aware that they are, potentially, losing out on said impression.  Halting the execution of an app due to error conditions is called fail safe mode.  Fail safe mode is disabled by default.  To enable fail safe mode in debug builds, follow the instructions below:
+
+Update your application Info.plist with the following:
++ Create a dictionary entry at root called *freestar*
++ Add a sub-entry under *freestar* called *failsafeModeEnabled* and set that to true (YES).
+```
+Info.plist -> freestar -> failsafeModeEnabled (bool) = YES
+```
+
 ---
 ## Questions
 If you have any questions, don’t hesitate to [email us](mailto:dean.chang@freestar.io).  
