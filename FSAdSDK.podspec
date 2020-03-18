@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
 
   s.name             = 'FSAdSDK'
-  s.version          = '#{FSAdSDK_Version}#'
+  s.version          = '0.6.7'
   s.summary          = 'Freestar iOS Mobile Advertising SDK.'
   s.description      = "Freestar's SDK to easily display ads from over 30 demand sources. Visit freestar.io for more info."
   s.homepage         = 'https://freestar.io'
   s.author           = { 'Freestar - Dean Chang' => 'dean.chang@freestar.io' }
   s.license          = { :type => 'Freestar Limited License' }
   s.platform         = :ios, '9.0'
-  s.source           = { :http => 'https://storage.googleapis.com/freestar-sdk/FSAdSDK/FSAdSDK-#{FSAdSDK_Version}#.tar.gz' }
+  s.source           = { :git => 'https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK.git', :tag => s.version.to_s }
   s.default_subspec  = 'Core'
   s.swift_version    = '5.0'
   s.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1' }
@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
        mopub.source_files = 'SDK/MoPubAdapter.framework/Versions/A/Headers/*.{h}'
        mopub.vendored_frameworks = 'SDK/MoPubAdapter.framework'
        mopub.preserve_paths =  'SDK/MoPubAdapter.framework/*'
-       mopub.dependency 'mopub-ios-sdk/Core', '#{MoPub_Version}#'
+       mopub.dependency 'mopub-ios-sdk/Core', '5.11.0'
        mopub.dependency 'Google-Mobile-Ads-SDK', '7.55.0'
     end
 
@@ -49,7 +49,7 @@ Pod::Spec.new do |s|
        facebook.source_files = 'SDK/FacebookAdapter.framework/Versions/A/Headers/*.{h}'
        facebook.vendored_frameworks = 'SDK/FacebookAdapter.framework'
        facebook.preserve_paths =  'SDK/FacebookAdapter.framework/*'
-       facebook.dependency 'FBAudienceNetwork', '#{Facebook_Version}#'
+       facebook.dependency 'FBAudienceNetwork', '5.6.1'
        facebook.dependency 'Google-Mobile-Ads-SDK', '7.55.0'
     end
   end
