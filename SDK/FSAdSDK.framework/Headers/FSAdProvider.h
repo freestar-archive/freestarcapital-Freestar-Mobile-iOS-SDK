@@ -76,6 +76,13 @@ typedef struct GADAdSize GADAdSize;
 @property (nonatomic, assign) NSTimeInterval fsRefreshRate;
 
 /**
+ * Autoload, defaults to true.  When set to true, any banner ad that is in the window, will get automatically refreshed or paused
+ * when the app session becomes active or resigns active, respectively.
+ */
+@property (nonatomic, assign, getter=isFsAutoLoadEnabled) BOOL fsAutoLoadEnabled;
+
+
+/**
  * Root view controller for the banner view, required, weak reference.
  */
 @property(nonatomic, weak, nullable) IBOutlet UIViewController *rootViewController;
