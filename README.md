@@ -7,21 +7,22 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
-| __0.6.6__ | _February 6th, 2020_ |  • [GMA SDK 7.55.0 compatibility](#gma-sdk-compatibility-matrix).<br> • Build optimization level increase.<br> • Decrease network timeout(s).
-| __0.6.4__ | _January 22nd, 2020_ |  • [GMA SDK 7.53.1 compatibility](#gma-sdk-compatibility-matrix).
-| __0.6.3__ | _January 9th, 2020_ |  • Dashboard compatibility release.
-| __0.6.2__ | _November 15th, 2019_ |  • [Facebook Audience Network](#facebook-audience-network) mediation support.
-| __0.6.0__ | _October 23th, 2019_ |  • Firebase analytics compatibility fix.<br> • Minimum iOS deployment target 9.0.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).
-| __0.5.2__ | _October 15th, 2019_ |  • Null check for ad refresh rate.
-| __0.5.0__ | _September 23th, 2019_ |  • Swift 5.1 module stability.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).
-| __0.4.7__ | _September 10th, 2019_ |  • [MoPub mediation](#mopub) support.
-| __0.4.6__ | _August 26th, 2019_ |  • Analytics remote switch.
-| __0.4.5__ | _June 24th, 2019_ |  • Queuing for analytics delivery (protobuf messages).
-| __0.4.4__ | _June 12th, 2019_ |  • Registration retry policy.
-| __0.4.3__ | _May 29th, 2019_ |  • Public setter for root view controller on banner view.
-| __0.4.2__ | _May 21th, 2019_ |  • Fixed ad event function name constants.
-| __0.4.1__ | _May 20th, 2019_ |  • Fixed fill rate issue for banner ads.
-| __0.4.0__ | _May 16th, 2019_ |  • [GMA SDK 7.41.0 compatibility](#gma-sdk-compatibility-matrix).<br> • Runtime adjustable refresh rates.<br> • Nullability updates.
+| __0.6.7__ | _April 13th, 2020_ |  • Banner autoload feature.|
+| __0.6.6__ | _February 6th, 2020_ |  • [GMA SDK 7.55.0 compatibility](#gma-sdk-compatibility-matrix).<br> • Build optimization level increase.<br> • Decrease network timeout(s).|
+| __0.6.4__ | _January 22nd, 2020_ |  • [GMA SDK 7.53.1 compatibility](#gma-sdk-compatibility-matrix).|
+| __0.6.3__ | _January 9th, 2020_ |  • Dashboard compatibility release.|
+| __0.6.2__ | _November 15th, 2019_ |  • [Facebook Audience Network](#facebook-audience-network) mediation support.|
+| __0.6.0__ | _October 23th, 2019_ |  • Firebase analytics compatibility fix.<br> • Minimum iOS deployment target 9.0.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).|
+| __0.5.2__ | _October 15th, 2019_ |  • Null check for ad refresh rate.|
+| __0.5.0__ | _September 23th, 2019_ |  • Swift 5.1 module stability.<br> • [GMA SDK 7.50.0 compatibility](#gma-sdk-compatibility-matrix).|
+| __0.4.7__ | _September 10th, 2019_ |  • [MoPub mediation](#mopub) support.|
+| __0.4.6__ | _August 26th, 2019_ |  • Analytics remote switch.|
+| __0.4.5__ | _June 24th, 2019_ |  • Queuing for analytics delivery (protobuf messages).|
+| __0.4.4__ | _June 12th, 2019_ |  • Registration retry policy.|
+| __0.4.3__ | _May 29th, 2019_ |  • Public setter for root view controller on banner view.|
+| __0.4.2__ | _May 21th, 2019_ |  • Fixed ad event function name constants.|
+| __0.4.1__ | _May 20th, 2019_ |  • Fixed fill rate issue for banner ads.|
+| __0.4.0__ | _May 16th, 2019_ |  • [GMA SDK 7.41.0 compatibility](#gma-sdk-compatibility-matrix).<br> • Runtime adjustable refresh rates.<br> • Nullability updates.|
 | __0.3.2__ | _May 14th, 2019_ |  • Prebid Mobile SDK is now an internal dependency, see updated Podfile. |
 | __0.3.1__ | _February 13th, 2019_ |  • Bundle id override, for testing only. |
 | __0.3.0__ | _January 7th, 2019_ |  • Dynamic iTunes Id.<br> • Ad size lock down.<br> |
@@ -33,7 +34,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Major API Changes
 | Latest |
 | ---- |
-| [ __0.6.0__ ] <br> • Usage of the forked GMA SDK is no longer needed, however version pinning is still required.  See [compatibility matrix](#gma-sdk-compatibility-matrix) below.
+| [ __0.6.7__ ] <br> • Banner autoload feature.  This can be enabled or disabled via the [API](https://htmlpreview.github.io/?https://github.com/freestarcapital/Freestar-Mobile-iOS-SDK/blob/master/Resources/docs/html/Protocols/FSBanner.html#//api/name/fsAutoLoadEnabled).  |
 
 _Warning: This step is required as of Google Mobile Ads SDK version 7.42.0. Failure to add add this Info.plist entry results in a crash with the message: "The Google Mobile Ads SDK was initialized incorrectly."_<br>
 Info.plist:
@@ -44,11 +45,12 @@ Info.plist:
 
 | Previous |
 | ---- |
-| [ __0.5.0__ ] <br>• Xcode 11+ upgrade required.<br> • Update your _Info.plist_ to enable [GADIsAdManagerApp](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start#update_your_infoplist) key.
+[ __0.6.0__ ] <br> • Usage of the forked GMA SDK is no longer needed, however version pinning is still required.  See [compatibility matrix](#gma-sdk-compatibility-matrix) below.|
+| [ __0.5.0__ ] <br>• Xcode 11+ upgrade required.<br> • Update your _Info.plist_ to enable [GADIsAdManagerApp](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start#update_your_infoplist) key.|
 | [ __0.4.7__ ] <br>• [MoPub mediation](#mopub) support.<br>|
 | [ __0.4.3__ ] <br>• Deprecated existing createBanner API.<br>|
 | [ __0.4.0__ ] <br>• Nullability API updates.<br>• [Podfile](#using-cocoapods) updates.<br> |
-| [ __0.2.0__ ]<br>• [Pause and resume](#banner-auto-refresh-pause-and-resume) for banner auto-refresh.<br>• [Banner convenience constants](#banner-ad-events-matrix) to detect event handler callback parameter.<br>• [Interstitial convenience constants](#interstitial-ad-events-matrix) to detect interstitial event handler callback parameter.<br>
+| [ __0.2.0__ ]<br>• [Pause and resume](#banner-auto-refresh-pause-and-resume) for banner auto-refresh.<br>• [Banner convenience constants](#banner-ad-events-matrix) to detect event handler callback parameter.<br>• [Interstitial convenience constants](#interstitial-ad-events-matrix) to detect interstitial event handler callback parameter.<br>|
 | [ __0.1.0__ ]<br>• Change to ad provider createBanner method.  Added registration delegate parameter.  Support for [interstitial](#interstitial) ad format. |
 
 ###### GMA SDK Compatibility Matrix
