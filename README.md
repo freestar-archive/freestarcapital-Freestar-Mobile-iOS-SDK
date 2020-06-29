@@ -7,6 +7,7 @@ We are pleased to announce the release of our SDK! Banner and interstitial ad fo
 ###### Change History
 | Version | Release Date | Description |
 | ---- | ------- | ----------- |
+| __0.6.9__ | _June 29th, 2020_ |  • [GMA SDK 7.61.0 compatibility](#gma-sdk-compatibility-matrix).|
 | __0.6.8__ | _May 4th, 2020_ |  • Increase max adunit limit from 10 to 50.|
 | __0.6.7__ | _April 13th, 2020_ |  • Banner autoload feature.|
 | __0.6.6__ | _February 6th, 2020_ |  • [GMA SDK 7.55.0 compatibility](#gma-sdk-compatibility-matrix).<br> • Build optimization level increase.<br> • Decrease network timeout(s).|
@@ -59,6 +60,7 @@ Starting with SDK version 0.6.0, it is no longer required to use the forked vers
 
 | FSAdSDK Version | GMA SDK Version | unForked? | Podfile |
 | ---- | ----- | -- | ------------ |
+| ~> 0.6.9 | 7.61.0 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '7.61.0' |
 | ~> 0.6.6 | 7.55.0 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '7.55.0' |
 | ~> 0.6.4 | 7.53.1 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '7.53.1' |
 | ~> 0.6.3 | 7.50.0 | :ballot_box_with_check: | pod 'Google-Mobile-Ads-SDK', '7.50.0' |
@@ -90,7 +92,7 @@ use_frameworks!
 
 target "YourAppTarget" do
     pod 'FSAdSDK/Banner'
-    pod 'Google-Mobile-Ads-SDK', '7.55.0'
+    pod 'Google-Mobile-Ads-SDK', '7.61.0'
 end
 ```
 
@@ -462,7 +464,7 @@ use_frameworks!
 target "YourAppTarget" do
     pod 'FSAdSDK/Mediation/MoPub'
     pod 'FSAdSDK/Banner'
-    pod 'Google-Mobile-Ads-SDK', '7.55.0'
+    pod 'Google-Mobile-Ads-SDK', '7.61.0'
 end
 ```
 
@@ -485,7 +487,7 @@ use_frameworks!
 target "YourAppTarget" do
     pod 'FSAdSDK/Mediation/Facebook'
     pod 'FSAdSDK/Banner'
-    pod 'Google-Mobile-Ads-SDK', '7.55.0'
+    pod 'Google-Mobile-Ads-SDK', '7.61.0'
 end
 ```
 
